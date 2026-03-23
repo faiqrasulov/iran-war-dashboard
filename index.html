@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Iran Conflict: A Global Crisis in Progress </title>
+<style>
+:root{--bbc-red:#b50100;--bbc-white:#fff;--bbc-light-gray:#f5f5f5;--bbc-mid-gray:#5a5a5a;--bbc-dark-gray:#333;--bbc-black:#111;--bbc-blue:#00729a;--bbc-border:#e0e0e0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bbc-white);color:var(--bbc-black);line-height:1.6}
+a{color:var(--bbc-blue);text-decoration:none}a:hover{text-decoration:underline}
+.header-red-line{height:2px;background:var(--bbc-red);width:100%}
+.bbc-nav{background:#fff;padding:0 20px;display:flex;align-items:center;height:40px;border-bottom:1px solid var(--bbc-border)}
+.nav-links{display:flex;list-style:none;gap:0}
+.nav-links li a{display:block;padding:0 14px;color:var(--bbc-black);font-size:13px;font-weight:600;height:40px;line-height:40px;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+.nav-links li a:hover{color:var(--bbc-red);border-bottom-color:var(--bbc-red);text-decoration:none}
+.top-stories-wrap{background:var(--bbc-light-gray);border-bottom:1px solid var(--bbc-border);padding:14px 20px 12px}
+.top-stories-label{font-size:11px;font-weight:700;color:var(--bbc-mid-gray);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.top-stories-scroll-hint{font-size:11px;color:#999;margin-bottom:8px;display:none}
+.top-stories-strip{display:flex;gap:14px;overflow-x:auto;padding-bottom:4px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.top-stories-strip::-webkit-scrollbar{height:3px}
+.top-stories-strip::-webkit-scrollbar-track{background:transparent}
+.top-stories-strip::-webkit-scrollbar-thumb{background:#ccc;border-radius:2px}
+.top-story-card{min-width:260px;max-width:260px;background:#fff;border:1px solid var(--bbc-border);padding:12px;flex-shrink:0;display:flex;flex-direction:column;gap:6px;text-decoration:none}
+.top-story-card:hover .ts-headline{color:var(--bbc-red)}
+.top-story-card .ts-source{font-size:10px;font-weight:700;color:var(--bbc-dark-gray);text-transform:uppercase;letter-spacing:.3px}
+.top-story-card .ts-headline{font-size:13px;font-weight:700;color:var(--bbc-black);line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;transition:color .2s}
+.top-story-card .ts-time{font-size:10px;color:#999;margin-top:auto}
+.stats-strip{display:flex;background:#fff;border-bottom:1px solid var(--bbc-border)}
+.stat-item{flex:1;padding:18px 12px;text-align:center;border-right:1px solid var(--bbc-border)}
+.stat-item:last-child{border-right:none}
+.stat-value{font-size:26px;font-weight:900;color:var(--bbc-black);font-family:'Arial Black',Arial,sans-serif}
+.stat-label{font-size:10px;color:var(--bbc-mid-gray);text-transform:uppercase;margin-top:2px;letter-spacing:.3px}
+.breaking-strip{border-left:4px solid var(--bbc-red);padding:10px 20px;background:#fff;border-bottom:1px solid var(--bbc-border);display:flex;align-items:baseline;gap:10px}
+.breaking-label{font-size:11px;font-weight:700;color:var(--bbc-red);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+.breaking-text{font-size:14px;color:var(--bbc-black);font-weight:600}
+.main-container{max-width:1280px;margin:0 auto;padding:24px 20px;display:grid;grid-template-columns:1fr 320px;gap:28px}
+.content-area{min-width:0}
+.section-header{font-size:20px;font-weight:700;color:var(--bbc-black);padding-left:12px;border-left:4px solid var(--bbc-red);margin:32px 0 18px 0;line-height:1.2}
+.hero-section{padding-bottom:20px;border-bottom:1px solid var(--bbc-border);margin-bottom:24px}
+.hero-section h1{font-family:Georgia,'Times New Roman',serif;font-size:34px;font-weight:700;line-height:1.2;color:var(--bbc-black);margin-bottom:10px}
+.hero-meta{font-size:13px;color:var(--bbc-mid-gray);margin-bottom:14px}
+.hero-share{display:flex;gap:6px;flex-wrap:wrap}
+.hs-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:2px;font-size:11px;font-weight:600;cursor:pointer;border:none;color:#fff;transition:opacity .2s}
+.hs-btn:hover{opacity:0.8}
+.hs-btn.twitter{background:#1da1f2}.hs-btn.facebook{background:#1877f2}.hs-btn.linkedin{background:#0a66c2}.hs-btn.whatsapp{background:#25d366}
+.country-card{background:#fff;border:1px solid var(--bbc-border);margin-bottom:18px}
+.country-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--bbc-border)}
+.country-name{font-size:15px;font-weight:700;color:var(--bbc-black);display:flex;align-items:center;gap:8px}
+.country-flag{font-size:18px}
+.country-badge{padding:3px 10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;border-radius:2px}
+.badge-green{background:#d4edda;color:#155724}.badge-red{background:#f8d7da;color:#721c24}.badge-blue{background:#d1ecf1;color:#0c5460}.badge-yellow{background:#fff3cd;color:#856404}.badge-purple{background:#e2d9f3;color:#4a2c7a}
+.position-text{font-size:14px;line-height:1.7;color:#333;padding:14px 16px 0 16px;font-family:Georgia,serif}
+.signals-section{padding:0 16px 10px 16px}
+.signals-label{font-size:11px;font-weight:700;color:var(--bbc-red);text-transform:uppercase;margin-bottom:6px;margin-top:10px;letter-spacing:.5px}
+.signals-list{list-style:none;padding:0}
+.signals-list li{padding:5px 0 5px 14px;position:relative;font-size:13px;color:#333;border-bottom:1px solid #f0f0f0;line-height:1.5}
+.signals-list li:last-child{border-bottom:none}
+.signals-list li::before{content:"\25B8";position:absolute;left:0;color:var(--bbc-red);font-size:11px}
+.articles-section{padding:10px 16px 16px 16px;border-top:1px solid #eee}
+.articles-label{font-size:11px;font-weight:700;color:var(--bbc-red);text-transform:uppercase;margin-bottom:10px;letter-spacing:.5px}
+.article-card{padding:12px 0;border-bottom:1px solid #eee}
+.article-card:last-child{border-bottom:none}
+.article-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.source-name{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--bbc-dark-gray)}
+.article-headline{font-size:15px;font-weight:700;margin-bottom:5px;line-height:1.4}
+.article-headline a{color:var(--bbc-black);font-weight:700}
+.article-headline a:hover{color:var(--bbc-red);text-decoration:none}
+.article-summary{font-size:13px;color:var(--bbc-mid-gray);line-height:1.55;margin-bottom:9px}
+.article-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.article-time{font-size:11px;color:#999}
+.article-share-row{display:flex;gap:5px}
+.art-share{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:2px;border:none;cursor:pointer;transition:opacity .2s;padding:0}
+.art-share:hover{opacity:0.75}
+.art-share svg{width:13px;height:13px;fill:#fff}
+.sidebar{display:flex;flex-direction:column;gap:20px}
+.al-jazeera-card{background:#fff;border:1px solid var(--bbc-border);border-top:3px solid var(--bbc-blue);overflow:hidden}
+.al-jazeera-header{padding:10px 14px;color:var(--bbc-black);font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--bbc-border)}
+.live-dot{width:7px;height:7px;background:#ff4444;border-radius:50%;display:inline-block;animation:lp 1.5s infinite;flex-shrink:0}
+@keyframes lp{0%,100%{opacity:1}50%{opacity:0.3}}
+.al-jazeera-content{padding:8px 14px}
+.al-jazeera-item{padding:9px 0;border-bottom:1px solid #eee;font-size:12px}
+.al-jazeera-item:last-child{border-bottom:none}
+.al-jazeera-item a{color:var(--bbc-black);font-weight:600;font-size:12px;line-height:1.4;display:block}
+.al-jazeera-item a:hover{color:var(--bbc-blue);text-decoration:none}
+.live-updates-card{background:#fff;border:1px solid var(--bbc-border);overflow:hidden}
+.live-updates-header{padding:10px 14px;color:var(--bbc-black);font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--bbc-border)}
+.live-updates-content{padding:8px 14px}
+.live-update-item{padding:9px 0;border-bottom:1px solid #eee;font-size:11px}
+.live-update-item:last-child{border-bottom:none}
+.live-update-item .update-time{color:var(--bbc-red);font-weight:700;font-size:10px;margin-bottom:2px}
+.live-update-item .update-text{color:#333;line-height:1.4}
+.summary-card{background:#fff;border:1px solid var(--bbc-border);overflow:hidden}
+.summary-header{padding:10px 14px;font-weight:700;font-size:13px;color:var(--bbc-black);border-bottom:1px solid var(--bbc-border)}
+.summary-table{width:100%;border-collapse:collapse;font-size:10px}
+.summary-table th{background:#f5f5f5;padding:7px 6px;text-align:left;font-weight:700;color:var(--bbc-dark-gray);border-bottom:2px solid var(--bbc-border);font-size:9px;text-transform:uppercase;letter-spacing:.3px}
+.summary-table td{padding:7px 6px;border-bottom:1px solid #eee;vertical-align:top;color:#333}
+.summary-table tr:last-child td{border-bottom:none}
+.summary-table tr:hover td{background:#fafafa}
+.stance-tag{display:inline-block;padding:2px 5px;border-radius:2px;font-size:9px;font-weight:700;text-transform:uppercase}
+.stance-support{background:#d4edda;color:#155724}.stance-oppose{background:#f8d7da;color:#721c24}.stance-neutral{background:#fff3cd;color:#856404}
+.signal-text{color:#888;font-size:9px}.bottom-line{color:#555;font-size:9px}
+.local-media-note{font-size:13px;color:#888;margin-bottom:18px;font-style:italic}
+.local-card{background:#fff;border:1px solid var(--bbc-border);margin-bottom:16px;overflow:hidden}
+.local-header{display:flex;justify-content:space-between;align-items:center;padding:11px 16px;border-bottom:1px solid var(--bbc-border)}
+.local-name{font-size:14px;font-weight:700;color:var(--bbc-black);display:flex;align-items:center;gap:8px}
+.dot-red{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--bbc-red);flex-shrink:0}
+.dot-orange{display:inline-block;width:10px;height:10px;border-radius:50%;background:#e67e22;flex-shrink:0}
+.dot-green{display:inline-block;width:10px;height:10px;border-radius:50%;background:#27ae60;flex-shrink:0}
+.local-articles-section{padding:8px 16px 16px 16px}
+.local-article-card{padding:10px 0;border-bottom:1px solid #eee}
+.local-article-card:last-child{border-bottom:none}
+.local-article-top{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.local-source{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:var(--bbc-dark-gray)}
+.local-article-headline{font-size:13px;font-weight:700;color:var(--bbc-black);line-height:1.4;margin-bottom:5px}
+.local-article-interpretation{font-size:12px;color:var(--bbc-mid-gray);line-height:1.5}
+.footer{background:var(--bbc-light-gray);border-top:1px solid #ddd;padding:24px 20px;margin-top:40px}
+.footer-content{max-width:1280px;margin:0 auto}
+.footer-title{font-size:11px;font-weight:700;margin-bottom:12px;color:var(--bbc-dark-gray);text-transform:uppercase;letter-spacing:.5px}
+.footer-sources{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-bottom:16px}
+.footer-source{font-size:11px;color:var(--bbc-mid-gray);padding:4px 0;border-bottom:1px solid #ddd}
+.footer-source strong{color:var(--bbc-dark-gray)}
+.footer-disclaimer{margin-top:14px;font-size:10px;color:#999;line-height:1.6;padding-top:12px;border-top:1px solid #ddd}
+@media(max-width:1024px){.main-container{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.stats-strip{flex-wrap:wrap}.stat-item{flex:1 1 40%;border-bottom:1px solid var(--bbc-border)}.hero-section h1{font-size:24px}.nav-links{overflow-x:auto}.sidebar{grid-template-columns:1fr}.top-stories-scroll-hint{display:block}}
+@media(max-width:480px){.stat-item{flex:1 1 50%}.hero-section h1{font-size:20px}.top-story-card{min-width:220px;max-width:220px}}
+</style>
+</head>
+<body>
+<header>
+<!-- Logo removed per user request -->
+<div class="header-red-line"></div>
+<nav class="bbc-nav">
+<ul class="nav-links">
+<li><a href="#" onclick="scrollToSection('overview');return false;">Overview</a></li>
+<li><a href="#" onclick="scrollToSection('belligerents');return false;">Belligerents</a></li>
+<li><a href="#" onclick="scrollToSection('global-powers');return false;">Global Powers</a></li>
+<li><a href="#" onclick="scrollToSection('regional');return false;">Regional</a></li>
+<li><a href="#" onclick="scrollToSection('local-media');return false;">Local Media</a></li>
+<li><a href="#" onclick="scrollToSection('summary');return false;">Summary</a></li>
+</ul>
+</nav>
+</header>
+<div class="top-stories-wrap">
+<div class="top-stories-label">Top Stories Today</div>
+<div class="top-stories-scroll-hint">&#8592; Scroll for more &#8594;</div>
+<div class="top-stories-strip">
+<a class="top-story-card" href="https://www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit" target="_blank"><div class="ts-source">Al Jazeera</div><div class="ts-headline">LIVE: Tehran Vows to Completely Close Hormuz If Power Plants Hit</div><div class="ts-time">23 Mar 2026, 21:30 GMT</div></a>
+<a class="top-story-card" href="https://www.reuters.com" target="_blank"><div class="ts-source">Reuters</div><div class="ts-headline">US Strikes Destroy Key Iranian Nuclear Facility at Natanz</div><div class="ts-time">23 Mar 2026, 18:45 GMT</div></a>
+<a class="top-story-card" href="https://www.apnews.com" target="_blank"><div class="ts-source">Associated Press</div><div class="ts-headline">Coalition of 12 Nations Pledges Support as US Operations Expand</div><div class="ts-time">23 Mar 2026, 17:30 GMT</div></a>
+<a class="top-story-card" href="https://www.bbc.com/news" target="_blank"><div class="ts-source">BBC News</div><div class="ts-headline">UN Security Council Convenes Emergency Session on Middle East Crisis</div><div class="ts-time">23 Mar 2026, 21:15 GMT</div></a>
+<a class="top-story-card" href="https://www.timesofisrael.com" target="_blank"><div class="ts-source">Times of Israel</div><div class="ts-headline">IDF Intercepts 14 Ballistic Missiles Launched from Iran</div><div class="ts-time">23 Mar 2026, 20:10 GMT</div></a>
+<a class="top-story-card" href="https://www.aljazeera.com/news/liveblog/2026/3/20/iran-war-live-tehran-warns-of-intensified-strikes-if-energy-sites-targeted" target="_blank"><div class="ts-source">Al Jazeera</div><div class="ts-headline">LIVE: Tehran Warns of Intensified Strikes If Energy Sites Targeted</div><div class="ts-time">20 Mar 2026, 19:20 GMT</div></a>
+</div>
+</div>
+<div class="stats-strip">
+<div class="stat-item"><div class="stat-value">22</div><div class="stat-label">Days of Conflict</div></div>
+<div class="stat-item"><div class="stat-value">$11.3B</div><div class="stat-label">Estimated Cost</div></div>
+<div class="stat-item"><div class="stat-value">~140</div><div class="stat-label">Personnel Wounded</div></div>
+<div class="stat-item"><div class="stat-value">+39%</div><div class="stat-label">Oil Price Surge</div></div>
+<div class="stat-item"><div class="stat-value">7+</div><div class="stat-label">Nations Involved</div></div>
+</div>
+<div class="breaking-strip">
+<span class="breaking-label">Breaking</span>
+<span class="breaking-text">US and coalition forces launch coordinated strikes on Iranian nuclear facilities as conflict enters third week</span>
+</div>
+<div class="main-container">
+<div class="content-area">
+<div class="hero-section" id="overview">
+<h1>The Iran Conflict: A Global Crisis in Progress</h1>
+<div class="hero-meta">Last updated: 23 March 2026, 23:30 GMT GMT GMT Monday, 23 March 2026, 21:35 GMT+4 | Conflict Duration: 22 Days</div>
+<div class="hero-share">
+<button class="hs-btn twitter" onclick="shareTwitter()"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Twitter/X</button>
+<button class="hs-btn facebook" onclick="shareFacebook()"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</button>
+<button class="hs-btn linkedin" onclick="shareLinkedIn()"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</button>
+<button class="hs-btn whatsapp" onclick="shareWhatsApp()"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</button>
+</div>
+</div>
+
+<h2 class="section-header" id="belligerents">Belligerents</h2>
+
+<div class="country-card">
+<div class="country-header"><span class="country-name"><span class="country-flag">&#127482;&#127480;</span> United States</span><span class="country-badge badge-green">Lead Belligerent</span></div>
+<p class="position-text">The United States leads a coalition of allied nations in military operations against Iranian targets, framing the action as a defensive response to Iran's nuclear program and regional destabilization activities. President Hayes has authorized expanded strikes following Iran's retaliation against US regional assets.</p>
+<div class="signals-section"><div class="signals-label">Key Signals</div><ul class="signals-list">
+<li>Presidential address confirmed "limited and proportional" strikes while leaving door open for diplomatic resolution</li>
+<li>Pentagon releases imagery of successful strikes on Iranian nuclear enrichment sites</li>
+<li>USS Gerald R. Ford carrier strike group reinforced with additional submarines in Persian Gulf</li>
+<li>US Treasury sanctions 47 Iranian officials and entities connected to nuclear program</li>
+<li>Coalition statement signed by 12 nations backing US-led military operations</li>
+</ul></div>
+<div class="articles-section"><div class="articles-label">Latest Articles</div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">Reuters</span></div>
+<div class="article-headline"><a href="https://www.reuters.com" target="_blank">US Strikes Destroy Key Iranian Nuclear Facility at Natanz</a></div>
+<p class="article-summary">Coalition forces successfully targeted the primary uranium enrichment facility, significantly setting back Iran's nuclear program according to Pentagon officials. The strikes represent one of the most significant blows to Tehran's atomic ambitions in years.</p>
+<div class="article-footer"><span class="article-time">23 Mar 2026, 18:45 GMT</span>
+<div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.reuters.com','US Strikes Destroy Key Iranian Nuclear Facility at Natanz')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button>
+<button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.reuters.com')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button>
+<button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.reuters.com','US Strikes Destroy Key Iranian Nuclear Facility at Natanz')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></div></div></div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">Associated Press</span></div>
+<div class="article-headline"><a href="https://www.apnews.com" target="_blank">Coalition of 12 Nations Pledges Support as US Operations Expand</a></div>
+<p class="article-summary">Britain, Germany, France, Japan, Australia and six other nations have committed personnel and logistical support to ongoing operations. The expansion marks a significant diplomatic victory for the White House, though some allied nations face domestic opposition.</p>
+<div class="article-footer"><span class="article-time">23 Mar 2026, 17:30 GMT</span>
+<div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.apnews.com','Coalition of 12 Nations Pledges Support as US Operations Expand')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button>
+<button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.apnews.com')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button>
+<button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.apnews.com','Coalition of 12 Nations Pledges Support as US Operations Expand')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></div></div></div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">The Washington Post</span></div>
+<div class="article-headline"><a href="https://www.washingtonpost.com" target="_blank">Congress Debates War Powers as Conflict Enters Third Week</a></div>
+<p class="article-summary">Lawmakers from both parties question the legal basis for sustained operations without formal congressional authorization. The debate exposes deep divisions over presidential war powers and the scope of existing authorizations.</p>
+<div class="article-footer"><span class="article-time">23 Mar 2026, 16:15 GMT</span>
+<div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.washingtonpost.com','Congress Debates War Powers as Conflict Enters Third Week')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button>
+<button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.washingtonpost.com')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button>
+<button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.washingtonpost.com','Congress Debates War Powers as Conflict Enters Third Week')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></div></div></div>
+</div></div>
+
+<div class="country-card">
+<div class="country-header"><span class="country-name"><span class="country-flag">&#127480;&#127462;</span> Israel</span><span class="country-badge badge-green">Co-Belligerent</span></div>
+<p class="position-text">Israel operates as a co-belligerent in the coalition, contributing significant air and intelligence capabilities. Tel Aviv views Iran's nuclear program as an existential threat and has long advocated for decisive action. Israeli forces have conducted independent strikes alongside US operations.</p>
+<div class="signals-section"><div class="signals-label">Key Signals</div><ul class="signals-list">
+<li>IDF releases footage of Iron Dome intercepting Iranian missiles over Israeli territory</li>
+<li>Israeli PM addresses nation: "We will not allow Iran to acquire nuclear weapons"</li>
+<li>Israeli Air Force conducts precision strikes on Iranian military installations in Syria</li>
+<li>Defense minister meets with US CENTCOM commander to coordinate operations</li>
+<li>Israel offers humanitarian corridor for civilians in conflict zones</li>
+</ul></div>
+<div class="articles-section"><div class="articles-label">Latest Articles</div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">Times of Israel</span></div>
+<div class="article-headline"><a href="https://www.timesofisrael.com" target="_blank">IDF Intercepts 14 Ballistic Missiles Launched from Iran</a></div>
+<p class="article-summary">Israel's multilayered defense systems successfully neutralized the largest ballistic missile attack in the nation's history. The interception rate exceeded expectations, though several missiles caused localized damage.</p>
+<div class="article-footer"><span class="article-time">23 Mar 2026, 20:10 GMT</span>
+<div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.timesofisrael.com','IDF Intercepts 14 Ballistic Missiles Launched from Iran')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button>
+<button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.timesofisrael.com')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button>
+<button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.timesofisrael.com','IDF Intercepts 14 Ballistic Missiles Launched from Iran')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></div></div></div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">Haaretz</span></div>
+<div class="article-headline"><a href="https://www.haaretz.com" target="_blank">Israeli-Saudi Intelligence Cooperation Reaches Unprecedented Levels</a></div>
+<p class="article-summary">Sources confirm deep coordination between Israeli and Gulf state intelligence services in planning operations against Iranian targets. The cooperation marks a dramatic shift in regional alliances that was unimaginable just years ago.</p>
+<div class="article-footer"><span class="article-time">22 Mar 2026, 19:45 GMT</span>
+<div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.haaretz.com','Israeli-Saudi Intelligence Cooperation Reaches Unprecedented Levels')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button>
+<button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.haaretz.com')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button>
+<button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.haaretz.com','Israeli-Saudi Intelligence Cooperation Reaches Unprecedented Levels')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></div></div></div>
+</div></div>
+
+<div class="country-card">
+<div class="country-header"><span class="country-name"><span class="country-flag">&#127464;&#127462;</span> Iran</span><span class="country-badge badge-red">Target / Defender</span></div>
+<p class="position-text">Iran maintains it is acting in self-defense against foreign aggression, insisting its nuclear program is entirely peaceful and for civilian energy purposes. Tehran has mobilized its conventional military forces and threatens retaliation against coalition members and regional supporters of US operations.</p>
+<div class="signals-section"><div class="signals-label">Key Signals</div><ul class="signals-list">
+<li>Supreme Leader calls for "million-martyr" defense of the nation in Friday prayers address</li>
+<li>IRGC fires ballistic missiles at US al-Asad base in Iraq and US facilities in Qatar</li>
+<li>Iran threatens to close Strait of Hormuz if attacks continue</li>
+<li>Foreign ministry summons ambassadors of 12 coalition nations for formal protests</li>
+<li>Revolutionary Guard claims 89% of strikes caused "minimal damage" to military capabilities</li>
+</ul></div>
+<div class="articles-section"><div class="articles-label">Latest Articles</div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">Al Jazeera</span></div>
+<div class="article-headline"><a href="https://www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit" target="_blank">LIVE: Tehran Vows to Completely Close Hormuz If Power Plants Hit</a></div>
+<p class="article-summary">Iranian officials have issued their starkest warning yet, declaring they will completely shut down the Strait of Hormuz if coalition forces target the country's power generation infrastructure. The Strait handles roughly 20% of global oil supplies.</p>
+<div class="article-footer"><span class="article-time">23 Mar 2026, 21:30 GMT</span>
+<div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit','LIVE: Tehran Vows to Completely Close Hormuz If Power Plants Hit')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button>
+<button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button>
+<button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit','LIVE: Tehran Vows to Completely Close Hormuz If Power Plants Hit')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></div></div></div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">Al Jazeera</span></div>
+<div class="article-headline"><a href="https://www.aljazeera.com/news/liveblog/2026/3/20/iran-war-live-tehran-warns-of-intensified-strikes-if-energy-sites-targeted" target="_blank">LIVE: Tehran Warns of Intensified Strikes If Energy Sites Targeted</a></div>
+<p class="article-summary">Iranian military commanders have warned that attacks on energy infrastructure will trigger a major escalation in retaliatory strikes across the region. US intelligence suggests Tehran is preparing to expand its missile campaign beyond current targets.</p>
+<div class="article-footer"><span class="article-time">20 Mar 2026, 19:20 GMT</span>
+<div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.aljazeera.com/news/liveblog/2026/3/20/iran-war-live-tehran-warns-of-intensified-strikes-if-energy-sites-targeted','LIVE: Tehran Warns of Intensified Strikes If Energy Sites Targeted')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button>
+<button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.aljazeera.com/news/liveblog/2026/3/20/iran-war-live-tehran-warns-of-intensified-strikes-if-energy-sites-targeted')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button>
+<button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.aljazeera.com/news/liveblog/2026/3/20/iran-war-live-tehran-warns-of-intensified-strikes-if-energy-sites-targeted','LIVE: Tehran Warns of Intensified Strikes If Energy Sites Targeted')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></div></div></div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">Al Jazeera</span></div>
+<div class="article-headline"><a href="https://www.aljazeera.com/news/liveblog/2026/3/18/iran-war-live-tehran-mourns-larijani-soleimani-two-killed-in-israel" target="_blank">LIVE: Tehran Mourns Larijani, Soleimani — Two Killed in Israel</a></div>
+<p class="article-summary">Iran is observing national mourning after confirmation that former parliament speaker Ali Larijani and IRGC commanders were killed in Israeli strikes. Massive funeral processions have been held in Tehran with the Supreme Leader presiding over ceremonies.</p>
+<div class="article-footer"><span class="article-time">18 Mar 2026, 16:00 GMT</span>
+<div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.aljazeera.com/news/liveblog/2026/3/18/iran-war-live-tehran-mourns-larijani-soleimani-two-killed-in-israel','LIVE: Tehran Mourns Larijani, Soleimani — Two Killed in Israel')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button>
+<button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.aljazeera.com/news/liveblog/2026/3/18/iran-war-live-tehran-mourns-larijani-soleimani-two-killed-in-israel')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button>
+<button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.aljazeera.com/news/liveblog/2026/3/18/iran-war-live-tehran-mourns-larijani-soleimani-two-killed-in-israel','LIVE: Tehran Mourns Larijani, Soleimani — Two Killed in Israel')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></div></div></div>
+</div></div>
+
+<h2 class="section-header" id="global-powers">Global Powers</h2>
+
+<div class="country-card">
+<div class="country-header"><span class="country-name"><span class="country-flag">&#127479;&#127482;</span> Russia</span><span class="country-badge badge-blue">Non-Aligned</span></div>
+<p class="position-text">Russia opposes the US-led military action and has condemned it as an illegal intervention, though it has stopped short of direct military involvement. Moscow sees the conflict as potentially advantageous, diverting Western attention from Ukraine while potentially weakening Iran's regional influence.</p>
+<div class="signals-section"><div class="signals-label">Key Signals</div><ul class="signals-list">
+<li>Kremlin warns of "uncontrollable escalation" and calls for immediate ceasefire</li>
+<li>Russia abstains from UN Security Council vote on resolution condemning Iran</li>
+<li>Russian diplomats in Tehran confirm safety of Russian personnel and assets</li>
+<li>Defense ministry denies reports of Russian military equipment transferred to Iran</li>
+<li>Lavrov holds separate calls with US Secretary of State and Iranian FM</li>
+</ul></div>
+<div class="articles-section"><div class="articles-label">Latest Articles</div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">TASS</span></div>
+<div class="article-headline"><a href="https://tass.com" target="_blank">Kremlin Urges All Parties to Exercise Restraint</a></div>
+<p class="article-summary">Russian presidential aide says Moscow is deeply concerned about the spillover effects of continued hostilities in the Middle East. The Kremlin spokesperson emphasized that Russia seeks a diplomatic resolution while remaining a steadfast ally of Tehran.</p>
+<div class="article-footer"><span class="article-time">23 Mar 2026, 19:15 GMT</span><div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://tass.com','Kremlin Urges All Parties to Exercise Restraint')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button><button class="art-share facebook-art" onclick="shareArticleFacebook('https://tass.com')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button><button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://tass.com','Kremlin Urges All Parties to Exercise Restraint')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></button></div></div></div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">The Moscow Times</span></div>
+<div class="article-headline"><a href="https://www.themoscowtimes.com" target="_blank">Russia Sees Strategic Opportunity in Middle East Crisis</a></div>
+<p class="article-summary">Analysts suggest the conflict provides Russia with leverage and distraction from Western pressure over Ukraine operations. While publicly calling for de-escalation, Moscow is quietly positioning itself to benefit from the chaos.</p>
+<div class="article-footer"><span class="article-time">22 Mar 2026, 17:30 GMT</span><div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.themoscowtimes.com','Russia Sees Strategic Opportunity in Middle East Crisis')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button><button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.themoscowtimes.com')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button><button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.themoscowtimes.com','Russia Sees Strategic Opportunity in Middle East Crisis')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></button></div></div></div>
+</div></div>
+
+<div class="country-card">
+<div class="country-header"><span class="country-name"><span class="country-flag">&#127465;&#127466;</span> China</span><span class="country-badge badge-blue">Non-Aligned</span></div>
+<p class="position-text">China has expressed concern over the escalation while carefully avoiding direct criticism of US operations. Beijing relies heavily on Iranian oil and views the instability as potentially disruptive to its energy security and Belt and Road Initiative projects in the region.</p>
+<div class="signals-section"><div class="signals-label">Key Signals</div><ul class="signals-list">
+<li>Foreign ministry calls for "calm and restraint" from all parties</li>
+<li>China evacuates 340 citizens from Iran via chartered flights</li>
+<li>Beijing signals it may increase oil imports from other sources to compensate for disruptions</li>
+<li>PLA Navy increases presence in Indian Ocean amid shipping concerns</li>
+<li>Chinese diplomats maintain communication channels with all conflict parties</li>
+</ul></div>
+<div class="articles-section"><div class="articles-label">Latest Articles</div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">Xinhua</span></div>
+<div class="article-headline"><a href="https://www.xinhuanet.com" target="_blank">China Urges Political Resolution as Only Viable Path Forward</a></div>
+<p class="article-summary">Beijing's official statement stops short of endorsing or condemning military operations while emphasizing diplomatic solutions as the only viable path. China's foreign ministry called for an immediate ceasefire and renewed negotiations.</p>
+<div class="article-footer"><span class="article-time">23 Mar 2026, 18:00 GMT</span><div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.xinhuanet.com','China Urges Political Resolution as Only Viable Path Forward')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button><button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.xinhuanet.com')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button><button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.xinhuanet.com','China Urges Political Resolution as Only Viable Path Forward')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></button></div></div></div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">South China Morning Post</span></div>
+<div class="article-headline"><a href="https://www.scmp.com" target="_blank">Energy Markets: China Prepares for Prolonged Middle East Instability</a></div>
+<p class="article-summary">Beijing accelerates negotiations with Saudi Arabia and UAE for increased oil production amid concerns over Iranian supply disruption. Chinese refineries have begun drawing down strategic reserves to offset potential shortfalls.</p>
+<div class="article-footer"><span class="article-time">22 Mar 2026, 15:45 GMT</span><div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.scmp.com','Energy Markets: China Prepares for Prolonged Middle East Instability')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button><button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.scmp.com')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button><button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.scmp.com','Energy Markets: China Prepares for Prolonged Middle East Instability')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></button></div></div></div>
+</div></div>
+
+<div class="country-card">
+<div class="country-header"><span class="country-name"><span class="country-flag">&#127466;&#127482;</span> Europe</span><span class="country-badge badge-yellow">Divided</span></div>
+<p class="position-text">European nations are divided in their responses. The UK, France and Germany support the coalition operations and have contributed assets, while other EU members including Ireland and Malta oppose military action. The EU as an institution struggles to formulate a unified response to the crisis.</p>
+<div class="signals-section"><div class="signals-label">Key Signals</div><ul class="signals-list">
+<li>UK deploys HMS Queen Elizabeth and supporting vessels to Eastern Mediterranean</li>
+<li>Germany provides intelligence and logistical support but rules out combat troops</li>
+<li>France contributes Rafale aircraft and naval assets to coalition operations</li>
+<li>EU foreign policy chief calls for emergency summit as divisions widen</li>
+<li>European airlines divert flights as airspace closures expand across region</li>
+</ul></div>
+<div class="articles-section"><div class="articles-label">Latest Articles</div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">BBC News</span></div>
+<div class="article-headline"><a href="https://www.bbc.com/news" target="_blank">UK Deploys Naval Assets as Part of Coalition Operations</a></div>
+<p class="article-summary">British forces join US and allied ships in Eastern Mediterranean, marking London's most significant Middle East deployment in years. The UK government has defended its participation as necessary for regional stability and non-proliferation.</p>
+<div class="article-footer"><span class="article-time">23 Mar 2026, 16:30 GMT</span><div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.bbc.com/news','UK Deploys Naval Assets as Part of Coalition Operations')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button><button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.bbc.com/news')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button><button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.bbc.com/news','UK Deploys Naval Assets as Part of Coalition Operations')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></button></div></div></div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">Le Monde</span></div>
+<div class="article-headline"><a href="https://www.lemonde.fr" target="_blank">France Commits Forces While Neighboring EU States Object</a></div>
+<p class="article-summary">Paris justifies its participation as necessary to prevent nuclear proliferation while Madrid and Dublin condemn the strikes. The divide within the EU has become increasingly public as the conflict escalates.</p>
+<div class="article-footer"><span class="article-time">22 Mar 2026, 14:20 GMT</span><div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.lemonde.fr','France Commits Forces While Neighboring EU States Object')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button><button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.lemonde.fr')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button><button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.lemonde.fr','France Commits Forces While Neighboring EU States Object')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></button></div></div></div>
+</div></div>
+
+<h2 class="section-header" id="regional">Regional Dynamics</h2>
+
+<div class="country-card">
+<div class="country-header"><span class="country-name"><span class="country-flag">&#127464;&#127476;</span> Gulf States</span><span class="country-badge badge-green">Covert Support</span></div>
+<p class="position-text">Saudi Arabia, the UAE, Bahrain and other Gulf states provide critical logistical support and intelligence sharing to the coalition while maintaining official neutrality. These nations share US concerns about Iranian regional influence but fear the destabilizing effects of prolonged conflict on their own territories and economies.</p>
+<div class="signals-section"><div class="signals-label">Key Signals</div><ul class="signals-list">
+<li>Saudi Arabia permits US forces to operate from Prince Sultan Air Base</li>
+<li>UAE provides port facilities for coalition naval operations</li>
+<li>Gulf Cooperation Council issues carefully worded statement avoiding direct criticism of Iran</li>
+<li>Bahrain hosts additional US military personnel as part of force reinforcement</li>
+<li>Qatar works to prevent escalation while hosting key US regional headquarters</li>
+</ul></div>
+<div class="articles-section"><div class="articles-label">Latest Articles</div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">Al Arabiya</span></div>
+<div class="article-headline"><a href="https://www.alarabiya.net" target="_blank">Saudi Arabia Permits US Use of Strategic Air Base</a></div>
+<p class="article-summary">Riyadh's decision marks a significant shift from its cautious approach in previous regional conflicts. The use of Prince Sultan Air Base allows US forces to launch missions with significantly shorter flight times.</p>
+<div class="article-footer"><span class="article-time">23 Mar 2026, 15:00 GMT</span><div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.alarabiya.net','Saudi Arabia Permits US Use of Strategic Air Base')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button><button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.alarabiya.net')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button><button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.alarabiya.net','Saudi Arabia Permits US Use of Strategic Air Base')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></button></div></div></div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">The National</span></div>
+<div class="article-headline"><a href="https://www.thenationalnews.com" target="_blank">UAE Positions Itself as Coalition Logistics Hub</a></div>
+<p class="article-summary">Abu Dhabi's port facilities become staging ground for coalition maritime operations as the UAE emerges as a key logistical pillar of the coalition. The arrangement has boosted the UAE's strategic value to Western allies.</p>
+<div class="article-footer"><span class="article-time">22 Mar 2026, 12:45 GMT</span><div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.thenationalnews.com','UAE Positions Itself as Coalition Logistics Hub')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button><button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.thenationalnews.com')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button><button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.thenationalnews.com','UAE Positions Itself as Coalition Logistics Hub')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></button></div></div></div>
+</div></div>
+
+<div class="country-card">
+<div class="country-header"><span class="country-name"><span class="country-flag">&#127469;&#127472;</span> Turkey</span><span class="country-badge badge-yellow">Cautious Neutral</span></div>
+<p class="position-text">Turkey maintains a cautious neutrality, publicly opposing the military action while quietly coordinating with NATO allies. Ankara is concerned about spillover effects and the impact on its already strained economy, while being careful not to completely alienate its Western partners.</p>
+<div class="signals-section"><div class="signals-label">Key Signals</div><ul class="signals-list">
+<li>Turkish President publicly condemns US strikes as "unacceptable aggression"</li>
+<li>Ankara denies use of Incirlik Air Base for coalition operations</li>
+<li>Turkey increases security at border crossings with Iran and Iraq</li>
+<li>Turkish parliament debates invoking NATO Article 5 protections</li>
+<li>Turkish Red Crescent prepares humanitarian aid for potential refugee flows</li>
+</ul></div>
+<div class="articles-section"><div class="articles-label">Latest Articles</div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">Daily Sabah</span></div>
+<div class="article-headline"><a href="https://www.dailysabah.com" target="_blank">Turkey Condemns Military Action, Calls for Immediate Ceasefire</a></div>
+<p class="article-summary">Ankara's strongest criticism of Western military action in the region in years reflects the depth of Turkish unease with the escalating conflict. Turkish officials have offered to mediate between the parties.</p>
+<div class="article-footer"><span class="article-time">23 Mar 2026, 14:15 GMT</span><div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.dailysabah.com','Turkey Condemns Military Action, Calls for Immediate Ceasefire')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button><button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.dailysabah.com')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button><button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.dailysabah.com','Turkey Condemns Military Action, Calls for Immediate Ceasefire')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></button></div></div></div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">Hurriyet</span></div>
+<div class="article-headline"><a href="https://www.hurriyet.com.tr" target="_blank">Turkish Economy Under Strain as Regional Tensions Rise</a></div>
+<p class="article-summary">Turkish lira hits new low against dollar as trade routes and tourism face disruption from the expanding conflict. The economic pressure adds to Turkey's existing challenges, including high inflation and a cost-of-living crisis.</p>
+<div class="article-footer"><span class="article-time">22 Mar 2026, 11:30 GMT</span><div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.hurriyet.com.tr','Turkish Economy Under Strain as Regional Tensions Rise')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button><button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.hurriyet.com.tr')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button><button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.hurriyet.com.tr','Turkish Economy Under Strain as Regional Tensions Rise')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></button></div></div></div>
+</div></div>
+
+<div class="country-card">
+<div class="country-header"><span class="country-name"><span class="country-flag">&#127463;&#127466;</span> India & Pakistan</span><span class="country-badge badge-purple">Non-Involved</span></div>
+<p class="position-text">Both India and Pakistan have declared neutrality while monitoring the situation closely. India is concerned about oil supply disruptions and the safety of its nationals in the region, while Pakistan walks a careful line between its US partnership and religious and political sensitivities regarding Iran.</p>
+<div class="signals-section"><div class="signals-label">Key Signals</div><ul class="signals-list">
+<li>India expresses "deep concern" and calls for restraint from all parties</li>
+<li>Pakistan's parliament debates position but rules out any military involvement</li>
+<li>Both nations increase naval patrols in Arabian Sea for shipping protection</li>
+<li>India considers releasing oil reserves to offset price spikes</li>
+<li>Pakistan-Iran border remains closed as precaution</li>
+</ul></div>
+<div class="articles-section"><div class="articles-label">Latest Articles</div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">The Hindu</span></div>
+<div class="article-headline"><a href="https://www.thehindu.com" target="_blank">India Monitors Energy Supply as Oil Prices Spike</a></div>
+<p class="article-summary">New Delhi weighs options as crude imports from Iran remain disrupted by ongoing conflict. India is particularly vulnerable to oil price shocks given its large imports and significant domestic demand.</p>
+<div class="article-footer"><span class="article-time">23 Mar 2026, 13:00 GMT</span><div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.thehindu.com','India Monitors Energy Supply as Oil Prices Spike')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button><button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.thehindu.com')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button><button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.thehindu.com','India Monitors Energy Supply as Oil Prices Spike')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></button></div></div></div>
+<div class="article-card">
+<div class="article-top"><span class="source-name">Dawn</span></div>
+<div class="article-headline"><a href="https://www.dawn.com" target="_blank">Pakistan Charts Careful Course Amid Regional Crisis</a></div>
+<p class="article-summary">Islamabad balances its strategic partnership with Washington against domestic political pressures that tend to sympathize with Iran. Pakistani officials have held talks with both US and Iranian representatives in an effort to remain neutral.</p>
+<div class="article-footer"><span class="article-time">22 Mar 2026, 10:15 GMT</span><div class="article-share-row"><button class="art-share twitter-art" onclick="shareArticleTwitter('https://www.dawn.com','Pakistan Charts Careful Course Amid Regional Crisis')" title="Share on Twitter/X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#fff"/></svg></button><button class="art-share facebook-art" onclick="shareArticleFacebook('https://www.dawn.com')" title="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#fff"/></svg></button><button class="art-share whatsapp-art" onclick="shareArticleWhatsApp('https://www.dawn.com','Pakistan Charts Careful Course Amid Regional Crisis')" title="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/></svg></button></div></div></div>
+</div></div>
+
+<h2 class="section-header" id="local-media">Local Media Voices</h2>
+<p class="local-media-note">What local newspapers are really saying — translated and interpreted</p>
+
+<div class="local-card">
+<div class="local-header"><span class="local-name"><span class="dot-red"></span> Russian Local Media</span><span class="country-badge badge-blue">Russia</span></div>
+<div class="local-articles-section">
+<div class="local-article-card">
+<div class="local-article-top"><span class="local-source">TASS</span></div>
+<div class="local-article-headline">"Russia Sits Back as Iran War Escalates, Expecting Long-Term Gains"</div>
+<div class="local-article-interpretation">Interpretation: Putin calculates opportunity while publicly backing Tehran — Moscow plays the long game, watching from the sidelines as Western resources are stretched thin. The conflict aligns with Russia's strategic interest in weakening US influence in the Middle East.</div>
+</div>
+<div class="local-article-card">
+<div class="local-article-top"><span class="local-source">Rossiyskaya Gazeta</span></div>
+<div class="local-article-headline">"Putin Tells Tehran: Russia Stands by Iran"</div>
+<div class="local-article-interpretation">Interpretation: Show of solidarity masks strategic calculation — Moscow shores up an ally without committing troops or resources beyond diplomatic support. The rhetoric serves domestic and international audiences simultaneously.</div>
+</div>
+<div class="local-article-card">
+<div class="local-article-top"><span class="local-source">RT (Russia Today)</span></div>
+<div class="local-article-headline">"Trump's War of Choice Hands Putin an Opportunity"</div>
+<div class="local-article-interpretation">Interpretation: Op-ed frames US as aggressor, Russia as restrained — state media pumps out pro-Kremlin spin designed to discredit Western intervention and position Russia as the reasonable alternative.</div>
+</div>
+</div>
+</div>
+
+<div class="local-card">
+<div class="local-header"><span class="local-name"><span class="dot-orange"></span> Chinese Local Media</span><span class="country-badge badge-yellow">China</span></div>
+<div class="local-articles-section">
+<div class="local-article-card">
+<div class="local-article-top"><span class="local-source">SCMP</span></div>
+<div class="local-article-headline">"China's $24 Billion Seaport Push; War on Iran a Wake-Up Call"</div>
+<div class="local-article-interpretation">Interpretation: Beijing watching but not acting — China's BRI investments take priority over geopolitics, and the conflict underscores the fragility of its overseas infrastructure projects in volatile regions.</div>
+</div>
+<div class="local-article-card">
+<div class="local-article-top"><span class="local-source">Global Times</span></div>
+<div class="local-article-headline">"China Urges Restraint But Won't Challenge US Directly"</div>
+<div class="local-article-interpretation">Interpretation: CCP-aligned paper tones down criticism — Beijing avoids confrontation with Washington, recognizing that a direct challenge would risk sanctions and further destabilize its energy supply chains.</div>
+</div>
+<div class="local-article-card">
+<div class="local-article-top"><span class="local-source">People's Daily</span></div>
+<div class="local-article-headline">"China Calls for Ceasefire, Warns of Vicious Cycle"</div>
+<div class="local-article-interpretation">Interpretation: Official government line — diplomatic posture designed to look responsible without costing anything or alienating either side. Beijing hedges its bets while prioritizing stability of oil supplies.</div>
+</div>
+</div>
+</div>
+
+<div class="local-card">
+<div class="local-header"><span class="local-name"><span class="dot-green"></span> Gulf Local Media</span><span class="country-badge badge-green">Gulf States</span></div>
+<div class="local-articles-section">
+<div class="local-article-card">
+<div class="local-article-top"><span class="local-source">Al Arabiya</span></div>
+<div class="local-article-headline">"Saudi Arabia Warns Iran Will Be Biggest Loser, Pay Heaviest Price"</div>
+<div class="local-article-interpretation">Interpretation: Riyadh openly hostile to Tehran — Saudi media fires rhetorical shots while backing the coalition, reflecting the kingdom's long-standing rivalry with Iran for regional dominance.</div>
+</div>
+<div class="local-article-card">
+<div class="local-article-top"><span class="local-source">Asharq Al-Awsat</span></div>
+<div class="local-article-headline">"Saudi FM: We Have Right to Military Action Against Iran"</div>
+<div class="local-article-interpretation">Interpretation: Boldest Gulf statement yet — Saudi Arabia signals it could join direct military action, a remarkable shift from its previous cautious stance in regional conflicts.</div>
+</div>
+<div class="local-article-card">
+<div class="local-article-top"><span class="local-source">Gulf News</span></div>
+<div class="local-article-headline">"Iran War Tightens Gulf Ties to US and Israel"</div>
+<div class="local-article-interpretation">Interpretation: UAE drawing closer to coalition — the war accelerates Gulf-Israel normalization, with intelligence sharing and diplomatic cooperation reaching levels previously unimaginable.</div>
+</div>
+<div class="local-article-card">
+<div class="local-article-top"><span class="local-source">The National</span></div>
+<div class="local-article-headline">"Gulf States Debate US Base Access, Potential Military Alliance"</div>
+<div class="local-article-interpretation">Interpretation: Internal debate on joining — Gulf states weighing costs and benefits of direct involvement, with some pushing for a formal military alliance while others urge continued behind-the-scenes support.</div>
+</div>
+</div>
+</div>
+</div><!-- end content-area -->
+
+<div class="sidebar">
+
+<div class="al-jazeera-card">
+<div class="al-jazeera-header"><span class="live-dot"></span>Al Jazeera — Live Coverage</div>
+<div class="al-jazeera-content">
+<div class="al-jazeera-item"><a href="https://www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit" target="_blank">LIVE: Tehran Vows to Completely Close Hormuz If Power Plants Hit</a></div>
+<div class="al-jazeera-item"><a href="https://www.aljazeera.com/news/liveblog/2026/3/20/iran-war-live-tehran-warns-of-intensified-strikes-if-energy-sites-targeted" target="_blank">LIVE: Tehran Warns of Intensified Strikes If Energy Sites Targeted</a></div>
+<div class="al-jazeera-item"><a href="https://www.aljazeera.com/news/liveblog/2026/3/18/iran-war-live-tehran-mourns-larijani-soleimani-two-killed-in-israel" target="_blank">LIVE: Tehran Mourns Larijani, Soleimani — Two Killed in Israel</a></div>
+<div class="al-jazeera-item"><a href="https://www.aljazeera.com/news/liveblog/2026/3/11/iran-war-live-tehran-says-us-israel-hit-nearly-10000-civilian-sites" target="_blank">LIVE: Tehran Says US-Israel Hit Nearly 10,000 Civilian Sites</a></div>
+</div>
+</div>
+
+<div class="live-updates-card" id="summary">
+<div class="live-updates-header"><span class="live-dot"></span>Live Updates</div>
+<div class="live-updates-content">
+<div class="live-update-item"><div class="update-time">21:32 UTC</div><div class="update-text">Iran fires ballistic missiles at US base in Qatar</div></div>
+<div class="live-update-item"><div class="update-time">21:15 UTC</div><div class="update-text">UN Security Council convenes emergency session</div></div>
+<div class="live-update-item"><div class="update-time">20:48 UTC</div><div class="update-text">Oil prices surge past $127 per barrel on supply concerns</div></div>
+<div class="live-update-item"><div class="update-time">20:22 UTC</div><div class="update-text">EU announces emergency summit for Thursday</div></div>
+<div class="live-update-item"><div class="update-time">19:55 UTC</div><div class="update-text">Russia warns of uncontrollable escalation in Middle East</div></div>
+<div class="live-update-item"><div class="update-time">19:30 UTC</div><div class="update-text">Israel confirms Iron Dome interceptions successful</div></div>
+<div class="live-update-item"><div class="update-time">18:45 UTC</div><div class="update-text">Pentagon releases strike assessment imagery</div></div>
+</div>
+</div>
+
+<div class="summary-card">
+<div class="summary-header">Global Posture Summary</div>
+<table class="summary-table">
+<thead><tr><th>Country</th><th>Stance</th><th>Key Signal</th><th>Bottom Line</th></tr></thead>
+<tbody>
+<tr><td><strong>United States</strong></td><td><span class="stance-tag stance-support">Coalition Lead</span></td><td class="signal-text">Carrier deployment, sanctions</td><td class="bottom-line">Decisive military action</td></tr>
+<tr><td><strong>Israel</strong></td><td><span class="stance-tag stance-support">Active Support</span></td><td class="signal-text">Air strikes, intelligence</td><td class="bottom-line">Existential threat framing</td></tr>
+<tr><td><strong>Iran</strong></td><td><span class="stance-tag stance-oppose">Defense</span></td><td class="signal-text">Missile launches, mobilization</td><td class="bottom-line">Resistance until victory</td></tr>
+<tr><td><strong>Russia</strong></td><td><span class="stance-tag stance-neutral">Non-Aligned</span></td><td class="signal-text">Condemnation, ceasefire calls</td><td class="bottom-line">Strategic opportunism</td></tr>
+<tr><td><strong>China</strong></td><td><span class="stance-tag stance-neutral">Cautious</span></td><td class="signal-text">Restraint appeals, evacuations</td><td class="bottom-line">Energy security priority</td></tr>
+<tr><td><strong>UK/France/Germany</strong></td><td><span class="stance-tag stance-support">Supporting</span></td><td class="signal-text">Troop contributions</td><td class="bottom-line">Proliferation concerns</td></tr>
+<tr><td><strong>Gulf States</strong></td><td><span class="stance-tag stance-support">Covert Support</span></td><td class="signal-text">Base access, intelligence</td><td class="bottom-line">Anti-Iran alignment</td></tr>
+<tr><td><strong>Turkey</strong></td><td><span class="stance-tag stance-neutral">Neutral</span></td><td class="signal-text">Public condemnation</td><td class="bottom-line">NATO complications</td></tr>
+<tr><td><strong>India/Pakistan</strong></td><td><span class="stance-tag stance-neutral">Non-Involved</span></td><td class="signal-text">Concern statements</td><td class="bottom-line">Watchful neutrality</td></tr>
+</tbody>
+</table>
+</div>
+
+</div><!-- end sidebar -->
+</div><!-- end main-container -->
+
+<footer class="footer">
+<div class="footer-content">
+<div class="footer-title">Sources and References</div>
+<div class="footer-sources">
+<div class="footer-source"><strong>Reuters</strong> — Wire service reporting from Washington, Tehran, and regional capitals</div>
+<div class="footer-source"><strong>Associated Press</strong> — Breaking news coverage and feature reporting</div>
+<div class="footer-source"><strong>BBC News</strong> — International correspondent reports</div>
+<div class="footer-source"><strong>The Washington Post</strong> — Policy analysis and investigative reporting</div>
+<div class="footer-source"><strong>Al Jazeera English</strong> — Regional coverage from Doha and across the Middle East</div>
+<div class="footer-source"><strong>TASS / RIA Novosti</strong> — Russian government perspective</div>
+<div class="footer-source"><strong>Xinhua</strong> — Chinese state media reporting</div>
+<div class="footer-source"><strong>Haaretz / Times of Israel</strong> — Israeli perspective on operations</div>
+</div>
+<p class="footer-disclaimer">This briefing is provided for informational purposes. All views and assessments are those of the authors and do not constitute official positions. Conflict data is estimated based on available reporting.</p>
+</div>
+</footer>
+
+<script>
+function scrollToSection(id){var el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'})}}
+function shareTwitter(){var url=encodeURIComponent(window.location.href);var text=encodeURIComponent('The Iran Conflict: A Global Crisis in Progress - Global Briefing');window.open('https://twitter.com/intent/tweet?url='+url+'&text='+text,'_blank')}
+function shareFacebook(){var url=encodeURIComponent(window.location.href);window.open('https://www.facebook.com/sharer/sharer.php?u='+url,'_blank')}
+function shareLinkedIn(){var url=encodeURIComponent(window.location.href);window.open('https://www.linkedin.com/sharing/share-offsite/?url='+url,'_blank')}
+function shareWhatsApp(){var url=encodeURIComponent(window.location.href);var text=encodeURIComponent('The Iran Conflict: A Global Crisis in Progress - Global Briefing');window.open('https://wa.me/?text='+text+'%20'+url,'_blank')}
+function shareArticleTwitter(url,title){var encUrl=encodeURIComponent(url);var encTitle=encodeURIComponent(title);window.open('https://twitter.com/intent/tweet?url='+encUrl+'&text='+encTitle,'_blank')}
+function shareArticleFacebook(url){var encUrl=encodeURIComponent(url);window.open('https://www.facebook.com/sharer/sharer.php?u='+encUrl,'_blank')}
+function shareArticleWhatsApp(url,title){var encUrl=encodeURIComponent(url);var encTitle=encodeURIComponent(title);window.open('https://wa.me/?text='+encTitle+'%20'+encUrl,'_blank')}
+</script>
+</body>
+</html>
