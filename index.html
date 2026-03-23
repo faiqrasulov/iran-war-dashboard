@@ -93,8 +93,6 @@ a:hover { text-decoration: underline; }
 .aj-item a:hover { text-decoration: underline; }
 
 /* Summary Table */
-.summary-table-wrap { background: #fff; border: 1px solid #e0e0e0; }
-.summary-table-wrap h3 { font-family: Georgia, serif; font-size: 1rem; font-weight: 700; padding: 12px 15px; border-bottom: 1px solid #e0e0e0; }
 table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
 th { background: #eee; padding: 9px 12px; text-align: left; font-weight: 700; border-bottom: 2px solid #ccc; }
 td { padding: 9px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
@@ -425,41 +423,89 @@ footer { background: #f5f5f5; padding: 25px; margin-top: 40px; text-align: cente
     </div>
 
     <!-- SUMMARY TABLE -->
-    <div id="summary" style="margin-top: 30px;">
-      <div class="section-header">
-        <h2>Summary — Global Response Matrix</h2>
-      </div>
-      <div class="summary-table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>US</th>
-              <th>Israel</th>
-              <th>Iran</th>
-              <th>Russia</th>
-              <th>China</th>
-              <th>Europe</th>
-              <th>Gulf</th>
-              <th>Turkey</th>
-              <th>India</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Lead Belligerent — $11.3B Week 1 | Hegseth: "just getting started" | Extends Hormuz deadline | Claims "regime change underway"</td>
-              <td>Co-Belligerent — Expanding strikes | Larijani & Soleimani killed | Ground incursion | US-Israel rift growing</td>
-              <td>Target/Defender — New Supreme Leader Mojtaba Khamenei | Ready for long war | Denies all US talks | IRGC rebooting Hezbollah</td>
-              <td>Strategic Beneficiary — Stands by Iran | Oil revenues surging | Launching new Ukraine offensive | Long-term play</td>
-              <td>Cautious Observer — Urges ceasefire | No support for regime change | Commodity deals from prolonged war</td>
-              <td>Reluctant Bystander — Not backing US militarily | NATO withdrew from Iraq | Divided continent | Worried about refugees</td>
-              <td>Hedging — "Not our war" | Silent support for US/Israel | Saudi arms restock approved | Patience "not unlimited"</td>
-              <td>Regional Mediator — Open border | Refugees flowing | Erdogan warns against regional spillover</td>
-              <td>Dilemma — US partnership vs Iran ties | $50bn remittances at risk | Both seeking diplomatic flexibility</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+<div id="summary" style="margin-top: 30px;">
+  <div class="section-header">
+    <h2>Summary — Global Response Matrix</h2>
+  </div>
+  <div style="overflow-x: auto;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.82rem;">
+      <thead>
+        <tr>
+          <th style="background:#eee; padding:10px 14px; text-align:left; font-weight:700; border-bottom:2px solid #ccc; white-space:nowrap;">Nation</th>
+          <th style="background:#eee; padding:10px 14px; text-align:left; font-weight:700; border-bottom:2px solid #ccc;">Role</th>
+          <th style="background:#eee; padding:10px 14px; text-align:left; font-weight:700; border-bottom:2px solid #ccc; white-space:nowrap;">Military</th>
+          <th style="background:#eee; padding:10px 14px; text-align:left; font-weight:700; border-bottom:2px solid #ccc;">Diplomacy</th>
+          <th style="background:#eee; padding:10px 14px; text-align:left; font-weight:700; border-bottom:2px solid #ccc;">Economic / Humanitarian</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇺🇸 United States</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee;">Lead Belligerent</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">$11.3B Week 1 | Hegseth: "just getting started" | Carrier group reinforced</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Extends Hormuz deadline 5 days | Claims "regime change underway" | Criticises NATO</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Approved Saudi arms restock</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇮🇱 Israel</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee;">Co-Belligerent</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Larijani & Soleimani killed | Ground incursion vs Hezbollah | Expanding strikes</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Wants regime change, US wants nuclear deal | US-Israel rift growing</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Humanitarian corridor offered</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇮🇷 Iran</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee;">Target / Defender</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">IRGC rebooting Hezbollah | Ready for long war | Missiles hitting neighbors</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Denies all US talks | New Supreme Leader Mojtaba Khamenei</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Refugees flowing to Turkey | Human cost mounting</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇷🇺 Russia</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee;">Strategic Beneficiary</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Launching new Ukraine offensive | Oil boom filling coffers</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">"Stands by Iran" | Long-term strategic play</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Oil revenues surging from war</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇨🇳 China</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee;">Cautious Observer</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">No military involvement</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Urges ceasefire | No support for regime change | Commodity deals from prolonged war</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">"Landmark year" for US ties | Watching carefully</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇪🇺 Europe</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee;">Reluctant Bystander</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">NATO withdrew from Iraq | Not backing US militarily</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Spain's PM defies Trump | Divided continent</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Worried about refugee surge</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇸🇦 Gulf States</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee;">Hedging</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Silent support for US/Israel | Tolerated Iranian strikes</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Saudi: patience "not unlimited" | UAE drawing closer to US</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Saudi arms restock approved</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇹🇷 Turkey</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee;">Regional Mediator</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Open border | Refugees flowing through</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Erdogan: war "must stop" | Positioning as mediator</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Kurdish dimension complicates role</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇮🇳 India & Pakistan</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee;">Dilemma</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Both caught in crossfire</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">India balancing US partnership vs Iran ties | Pakistan attempted mediation</td>
+          <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">$50bn Indian remittances at risk</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
   </div>
 
