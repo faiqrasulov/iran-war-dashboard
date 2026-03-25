@@ -3,131 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Iran Conflict: A Global Crisis in Progress</title>
+<title>The Iran Conflict — Live Dashboard</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Arial, Helvetica, sans-serif; background: #ffffff; color: #000000; font-size: 1rem; line-height: 1.6; }
-a { color: #0000EE; text-decoration: none; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; color: #222; line-height: 1.5; font-size: 14px; }
+a { color: #b50100; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* Header */
-.top-bar { height: 2px; background: #b50100; }
-.nav-bar { padding: 12px 20px; border-bottom: 1px solid #e0e0e0; }
-.nav-bar a { color: #000; font-size: 0.875rem; font-weight: 600; margin-right: 20px; text-decoration: none; white-space: nowrap; }
-.nav-bar a:hover { text-decoration: underline; }
+.top-bar { background: #b50100; color: white; padding: 6px 20px; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; }
+.top-bar a { color: white; }
 
-/* Container */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+nav { background: #fff; border-bottom: 1px solid #ddd; padding: 0 20px; display: flex; align-items: center; height: 38px; gap: 4px; overflow-x: auto; white-space: nowrap; }
+nav a { color: #333; font-size: 0.82rem; padding: 8px 10px; border-radius: 4px 4px 0 0; }
+nav a:hover { background: #eee; text-decoration: none; }
 
-/* Hero */
-.hero { padding: 30px 20px 20px; max-width: 1100px; margin: 0 auto; }
-.hero h1 { font-family: Georgia, serif; font-size: 2.4rem; font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
-.hero .subtitle { font-size: 1rem; color: #333; margin-bottom: 18px; }
-.stats-bar { display: flex; flex-wrap: wrap; gap: 0; background: #fff; border: 1px solid #e0e0e0; border-bottom: none; }
-.stat-item { padding: 12px 24px; border-right: 1px solid #e0e0e0; font-size: 0.875rem; }
-.stat-item:last-child { border-right: none; }
-.stat-label { font-weight: 700; }
+.hero { background: #b50100; color: white; padding: 24px 20px 20px; max-width: 1100px; }
+.hero h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+.subtitle { font-size: 0.95rem; opacity: 0.95; margin-bottom: 12px; }
+.stats-bar { display: flex; gap: 20px; flex-wrap: wrap; }
+.stat-item { background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 4px; }
+.stat-label { font-weight: 700; font-size: 1.05rem; }
 
-/* Breaking */
 .breaking { margin: 0 20px 20px; max-width: 1060px; border-left: 4px solid #b50100; padding: 12px 16px; background: #fff; }
 .breaking-label { font-weight: 700; color: #b50100; font-size: 0.8rem; margin-right: 8px; }
 .breaking-text { font-size: 0.875rem; }
 
-/* Top Scroll */
-.top-scroll { overflow-x: auto; white-space: nowrap; padding: 15px 20px; margin: 0 0 10px; border-bottom: 1px solid #eee; -webkit-overflow-scrolling: touch; }
-.top-scroll::-webkit-scrollbar { height: 4px; }
-.top-scroll::-webkit-scrollbar-thumb { background: #ccc; }
-.scroll-card { display: inline-block; width: 220px; margin-right: 15px; padding: 12px; border: 1px solid #e0e0e0; border-radius: 4px; vertical-align: top; white-space: normal; background: #fff; }
-.scroll-card .source { font-size: 0.7rem; color: #888; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; }
-.scroll-card h4 { font-size: 0.875rem; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
-.scroll-card h4 a { color: #000; text-decoration: none; }
-.scroll-card h4 a:hover { text-decoration: underline; }
-.scroll-card .time { font-size: 0.65rem; color: #888; }
+.section { background: #fff; margin: 0 20px 20px; border-radius: 4px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+.section h2 { padding: 12px 16px; border-bottom: 1px solid #eee; font-size: 1rem; color: #b50100; }
+.section-cards { padding: 12px; display: grid; grid-template-columns: repeat(auto-fill, min-max(300px, 1fr)); gap: 12px; }
+.article-card { border: 1px solid #eee; border-radius: 4px; padding: 12px; transition: box-shadow 0.2s; }
+.article-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.article-card h4 { font-size: 0.88rem; line-height: 1.4; margin-bottom: 4px; }
+.article-card h4 a { color: #222; }
+.article-card h4 a:hover { color: #b50100; }
+.article-card .source { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
+.article-card .summary { font-size: 0.8rem; color: #555; }
+.share-bar { margin-top: 6px; font-size: 0.72rem; display: flex; gap: 8px; align-items: center; }
+.share-label { color: #aaa; }
+.share-bar a { color: #b50100; }
 
-/* Main layout */
-.main-layout { display: flex; max-width: 1100px; margin: 0 auto; padding: 20px; gap: 30px; }
-.main-content { flex: 1; min-width: 0; }
-.sidebar { width: 280px; flex-shrink: 0; }
+.aj-section { padding: 12px 16px; }
+.aj-section h3 { font-size: 0.9rem; color: #333; margin-bottom: 8px; }
+.aj-item { padding: 4px 0; border-bottom: 1px solid #eee; font-size: 0.82rem; }
+.aj-item:last-child { border: none; }
+.aj-item a { color: #b50100; }
 
-/* Section Headers */
-.section-header { padding: 12px 0; border-left: 4px solid #b50100; padding-left: 12px; margin: 25px 0 15px; }
-.section-header h2 { font-family: Georgia, serif; font-size: 1.4rem; font-weight: 700; margin: 0; }
-.section-header:first-of-type { margin-top: 0; }
+.summary-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.summary-table th { background: #f9f9f9; padding: 8px 12px; text-align: left; border-bottom: 2px solid #ddd; }
+.summary-table td { padding: 6px 12px; border-bottom: 1px solid #eee; }
+.summary-table tr:hover { background: #fafafa; }
 
-/* Country Cards */
-.country-card { background: #fff; border: 1px solid #e0e0e0; padding: 20px; margin-bottom: 20px; }
-.country-flag { font-size: 1.2rem; margin-right: 6px; }
-.country-name { font-family: Georgia, serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
-.country-role { font-size: 0.75rem; color: #666; font-style: italic; margin-bottom: 10px; }
-.country-position { font-size: 0.875rem; margin-bottom: 10px; line-height: 1.5; }
-.signals { margin-bottom: 12px; }
-.signals-label { font-size: 0.72rem; font-weight: 700; color: #888; text-transform: uppercase; margin-bottom: 4px; }
-.signals span { display: inline-block; font-size: 0.72rem; background: #f0f0f0; padding: 2px 7px; border-radius: 3px; margin: 2px 3px 2px 0; }
-
-/* Article Cards */
-.article-card { padding: 12px 0; border-top: 1px solid #eee; }
-.article-card:first-child { border-top: none; }
-.article-headline { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-.article-headline a { color: #000; text-decoration: none; }
-.article-headline a:hover { text-decoration: underline; }
-.article-summary { font-size: 0.82rem; color: #555; line-height: 1.5; margin-bottom: 6px; }
-.article-meta { font-size: 0.72rem; color: #888; }
-
-/* Local Media */
-.local-media-section { margin-top: 30px; }
-.media-group { margin-bottom: 20px; }
-.media-group-header { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; }
-.media-item { padding: 6px 0; border-bottom: 1px solid #eee; font-size: 0.82rem; }
-.media-item:last-child { border-bottom: none; }
-.media-item .media-source { font-weight: 700; margin-right: 6px; }
-.media-item a { color: #000; text-decoration: none; }
-.media-item a:hover { text-decoration: underline; }
-.media-item .media-desc { color: #666; }
-
-/* AJ Box */
-.aj-box { border-top: 3px solid #00729a; padding: 15px; background: #fff; margin-bottom: 20px; }
-.aj-box h3 { color: #00729a; font-size: 0.9rem; font-weight: 700; margin-bottom: 10px; }
-.aj-item { padding: 8px 0; border-bottom: 1px solid #eee; }
-.aj-item:last-child { border-bottom: none; }
-.aj-item a { font-size: 0.85rem; color: #000; text-decoration: none; }
-.aj-item a:hover { text-decoration: underline; }
-
-/* Summary Table */
-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-th { background: #eee; padding: 9px 12px; text-align: left; font-weight: 700; border-bottom: 2px solid #ccc; }
-td { padding: 9px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
-
-/* Footer */
-footer { background: #f5f5f5; padding: 25px; margin-top: 40px; text-align: center; font-size: 0.75rem; color: #666; }
-
-/* Responsive */
-@media (max-width: 768px) {
-  .main-layout { flex-direction: column; padding: 10px; }
-  .sidebar { width: 100%; }
-  .hero h1 { font-size: 1.7rem; }
-  .stat-item { padding: 10px 14px; font-size: 0.8rem; }
-  .nav-bar { overflow-x: auto; white-space: nowrap; }
-}
+.footer { text-align: center; padding: 20px; color: #999; font-size: 0.75rem; }
 </style>
 </head>
 <body>
 
-<div class="top-bar"></div>
+<div class="top-bar">
+  <span>Last updated: Mar 25, 2026 14:13 GMT+4</span>
+  <span>Sources: Multiple outlets via DuckDuckGo</span>
+</div>
 
-<nav class="nav-bar">
-  <a href="#" onclick="scrollToSection('hero'); return false;">Overview</a>
-  <a href="#" onclick="scrollToSection('belligerents'); return false;">Belligerents</a>
+<nav>
+  <a href="#" onclick="scrollToSection('breaking'); return false;">Breaking</a>
+  <a href="#" onclick="scrollToSection('us'); return false;">United States</a>
+  <a href="#" onclick="scrollToSection('israel'); return false;">Israel</a>
+  <a href="#" onclick="scrollToSection('iran'); return false;">Iran</a>
+  <a href="#" onclick="scrollToSection('russia-ukraine'); return false;">Russia</a>
+  <a href="#" onclick="scrollToSection('china'); return false;">China</a>
+  <a href="#" onclick="scrollToSection('europe'); return false;">Europe</a>
+  <a href="#" onclick="scrollToSection('gulf-states'); return false;">Gulf States</a>
+  <a href="#" onclick="scrollToSection('turkey'); return false;">Turkey</a>
+  <a href="#" onclick="scrollToSection('india'); return false;">India</a>
+  <a href="#" onclick="scrollToSection('ukraine'); return false;">Ukraine</a>
   <a href="#" onclick="scrollToSection('global-powers'); return false;">Global Powers</a>
-  <a href="#" onclick="scrollToSection('regional'); return false;">Regional</a>
   <a href="#" onclick="scrollToSection('local-media'); return false;">Local Media</a>
   <a href="#" onclick="scrollToSection('summary'); return false;">Summary</a>
 </nav>
 
 <div id="hero" class="hero">
   <h1>The Iran Conflict: A Global Crisis in Progress</h1>
-  <p class="subtitle">Day 23 — US-Israel war on Iran. Trump extends Hormuz deadline. Iran denies talks. Russia escalates in Ukraine.</p>
+  <p class="subtitle">Day 24 — US-Israel war on Iran. U.S. drafts plan to end war with Iran as 2,000 paratroopers are ordered to deplo...</p>
   <div class="stats-bar">
-    <div class="stat-item"><span class="stat-label">23 Days</span></div>
+    <div class="stat-item"><span class="stat-label">24 Days</span></div>
     <div class="stat-item"><span class="stat-label">$11.3B</span> Cost</div>
     <div class="stat-item"><span class="stat-label">~140</span> Wounded</div>
     <div class="stat-item"><span class="stat-label">+39%</span> Oil</div>
@@ -137,424 +94,645 @@ footer { background: #f5f5f5; padding: 25px; margin-top: 40px; text-align: cente
 
 <div class="breaking">
   <span class="breaking-label">BREAKING</span>
-  <span class="breaking-text">Day 23 — Trump extends Hormuz deadline 5 days | Iran denies negotiations | China urges ceasefire | Russia launches new Ukraine offensive</span>
+  <span class="breaking-text">Day 24 — U.S. drafts plan to end war with Iran as 2,000 paratroopers are ordered to deploy in the Middle East | Iran-Israel war LIVE: Iran has received 15-point U.S. ceasefire proposal, says report | US 'negotiating with itself', says Iran - Live</span>
 </div>
 
-<!-- Top Stories Today -->
-<div class="top-scroll">
-  <div class="scroll-card">
-    <div class="source">NY Times</div>
-    <h4><a href="https://www.nytimes.com/live/2026/03/23/world/iran-war-oil-trump" target="_blank">Trump Says U.S. and Iran Held 'Very Good' Talks — Tehran Denies</a></h4>
-    <div class="time">March 23, 2026</div>
-  </div>
-  <div class="scroll-card">
-    <div class="source">AP News</div>
-    <h4><a href="https://apnews.com/live/iran-war-israel-trump-03-23-2026" target="_blank">Trump Extends Hormuz Deadline 5 Days; World Leaders React</a></h4>
-    <div class="time">March 23, 2026</div>
-  </div>
-  <div class="scroll-card">
-    <div class="source">CBS News</div>
-    <h4><a href="https://www.cbsnews.com/live-updates/us-iran-war-israel-strikes-tehran-lebanon/" target="_blank">Hegseth: US 'Just Getting Started' in Iran War</a></h4>
-    <div class="time">Live Updates</div>
-  </div>
-  <div class="scroll-card">
-    <div class="source">Al Jazeera</div>
-    <h4><a href="https://www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit" target="_blank">Iran Warns of Hits on Energy Sites After Trump Threat</a></h4>
-    <div class="time">March 23, 2026</div>
-  </div>
-  <div class="scroll-card">
-    <div class="source">The Atlantic</div>
-    <h4><a href="https://www.theatlantic.com/international/2026/03/trump-netanyahu-iran-war/686267/" target="_blank">America's and Israel's Goals Are Already Colliding</a></h4>
-    <div class="time">March 2026</div>
-  </div>
-  <div class="scroll-card">
-    <div class="source">Reuters / MSN</div>
-    <h4><a href="https://www.msn.com/en-ca/news/world/putin-tells-tehran-russia-stands-by-iran/ar-AA1Z6k8Y" target="_blank">Putin Tells Tehran: Russia Stands by Iran</a></h4>
-    <div class="time">March 2026</div>
-  </div>
-  <div class="scroll-card">
-    <div class="source">TIME</div>
-    <h4><a href="https://time.com/article/2026/03/13/trump-iran-hormuz-oil-gas-war/" target="_blank">Why the War with Iran Could Be a Long One</a></h4>
-    <div class="time">March 13, 2026</div>
-  </div>
-  <div class="scroll-card">
-    <div class="source">PBS</div>
-    <h4><a href="https://www.pbs.org/newshour/world/ukraines-pressure-grows-as-war-in-iran-deepens-and-russia-readies-a-new-offensive" target="_blank">Ukraine Pressure Grows as Russia Readies New Offensive</a></h4>
-    <div class="time">March 2026</div>
-  </div>
+<div class="aj-section">
+  <h3>📺 Al Jazeera Live Coverage</h3>
+  <div class="aj-item"><a href="https://www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit" target="_blank">Iran War Live — Day 23: Tehran Vows to Close Hormuz If Power Plants Hit</a></div>
+  <div class="aj-item"><a href="https://www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-updates-diplomacy-hegemony-middle-east" target="_blank">Iran War Live Updates — Day 22: Diplomacy, Hegemony and the Future of the Middle East</a></div>
+  <div class="aj-item"><a href="https://www.aljazeera.com/news/liveblog/2026/3/22/iran-war-live-updates-middle-east-conflict-day-21" target="_blank">Iran War Live — Day 21: Middle East Conflict Intensifies</a></div>
 </div>
 
-<div class="main-layout">
-  <div class="main-content">
 
-    <!-- BELLIGERENTS -->
-    <div id="belligerents">
-      <div class="section-header">
-        <h2>🇺🇸 United States — Lead Belligerent</h2>
-      </div>
-      <div class="country-card">
-        <p class="country-position">Trump claims "very good talks" with Iran — Iran denies. $11.3B spent Week 1. Hegseth contradicts White House tone, says "just getting started." Extends Hormuz deadline 5 days.</p>
-        <div class="signals">
-          <div class="signals-label">Key Signals</div>
-          <span>Extends Hormuz deadline 5 days</span>
-          <span>Hegseth contradicts diplomacy</span>
-          <span>Criticises NATO allies</span>
-          <span>Claims "regime change underway"</span>
-          <span>Approved Saudi arms restock</span>
+  <div class="section" id="united-states">
+    <h2>🇺🇸 United States</h2>
+    <div class="section-cards">      <div class="article-card" id="a0">
+        <h4><a href="https://www.npr.org/2026/03/25/nx-s1-5760675/iran-war-military-deployment" target="_blank">U.S. drafts plan to end war with Iran as 2,000 paratroopers are ordered to deploy in the Middle East</a></h4>
+        <p class="source">Npr — Mar 25, 2026</p>
+        <p class="summary">Nearly a month into the war with Iran, the Trump administration is keeping its options open: it has drafted a 15-point plan to end the war with Iran and ordering thousands of paratroopers to deploy in</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=U.S.%20drafts%20plan%20to%20end%20war%20with%20Iran%20as%202%2C000%20paratroopers%20are%20ordered%20to%20deploy%20in%20the%20Middle%20East&url=https%3A//www.npr.org/2026/03/25/nx-s1-5760675/iran-war-military-deployment" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.npr.org/2026/03/25/nx-s1-5760675/iran-war-military-deployment" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=U.S.%20drafts%20plan%20to%20end%20war%20with%20Iran%20as%202%2C000%20paratroopers%20are%20ordered%20to%20deploy%20in%20the%20Middle%20East%20https%3A//www.npr.org/2026/03/25/nx-s1-5760675/iran-war-military-deployment" target="_blank">WhatsApp</a>
         </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="https://www.nytimes.com/live/2026/03/23/world/iran-war-oil-trump" target="_blank">Trump Says U.S. and Iran Held 'Very Good' Talks — Tehran Denies</a></div>
-          <div class="article-meta">NY Times — March 23, 2026</div>
+      </div>      <div class="article-card" id="a1">
+        <h4><a href="https://www.bloomberg.com/news/articles/2026-03-25/iran-war-shows-limits-of-brics-as-india-pushed-to-choose-sides" target="_blank">Iran War Shows Limits of BRICS as India Pushed to Choose Sides</a></h4>
+        <p class="source">Bloomberg — Mar 25, 2026</p>
+        <p class="summary">India is facing mounting pressure as leader of the BRICS group to steer the bloc toward taking a firmer stand on the Iran conflict, putting New Delhi's diplomacy to the test.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20War%20Shows%20Limits%20of%20BRICS%20as%20India%20Pushed%20to%20Choose%20Sides&url=https%3A//www.bloomberg.com/news/articles/2026-03-25/iran-war-shows-limits-of-brics-as-india-pushed-to-choose-sides" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.bloomberg.com/news/articles/2026-03-25/iran-war-shows-limits-of-brics-as-india-pushed-to-choose-sides" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20War%20Shows%20Limits%20of%20BRICS%20as%20India%20Pushed%20to%20Choose%20Sides%20https%3A//www.bloomberg.com/news/articles/2026-03-25/iran-war-shows-limits-of-brics-as-india-pushed-to-choose-sides" target="_blank">WhatsApp</a>
         </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="https://www.cbsnews.com/live-updates/us-iran-war-israel-strikes-tehran-lebanon/" target="_blank">Hegseth: US "Just Getting Started" in Iran War</a></div>
-          <div class="article-meta">CBS News — Live Updates</div>
+      </div>      <div class="article-card" id="a2">
+        <h4><a href="https://www.nytimes.com/live/2026/03/25/world/iran-war-trump-oil-news/heres-the-latest" target="_blank">Iran War Live Updates: Pentagon Orders Troop Deployment as Pakistan Offers to Host Talks</a></h4>
+        <p class="source">NY Times — Mar 25, 2026</p>
+        <p class="summary">The Pentagon has ordered about 2,000 soldiers to deploy to the Middle East, two Defense Department officials said, even as President Trump on Tuesday appeared to support Pakistans</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20War%20Live%20Updates%3A%20Pentagon%20Orders%20Troop%20Deployment%20as%20Pakistan%20Offers%20to%20Host%20Talks&url=https%3A//www.nytimes.com/live/2026/03/25/world/iran-war-trump-oil-news/heres-the-latest" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.nytimes.com/live/2026/03/25/world/iran-war-trump-oil-news/heres-the-latest" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20War%20Live%20Updates%3A%20Pentagon%20Orders%20Troop%20Deployment%20as%20Pakistan%20Offers%20to%20Host%20Talks%20https%3A//www.nytimes.com/live/2026/03/25/world/iran-war-trump-oil-news/heres-the-latest" target="_blank">WhatsApp</a>
         </div>
-      </div>
-
-      <div class="section-header">
-        <h2>🇮🇱 Israel — Co-Belligerent</h2>
-      </div>
-      <div class="country-card">
-        <p class="country-position">Expanding strikes on Lebanon and Iran. Larijani and Soleimani confirmed killed. Internal turmoil. Ground incursion vs Hezbollah ongoing. US-Israel rift over endgame — Israel wants regime change, US wants nuclear deal.</p>
-        <div class="signals">
-          <div class="signals-label">Key Signals</div>
-          <span>US-Israel rift over endgame</span>
-          <span>Israel wants regime change, US wants nuclear deal</span>
-          <span>Ground incursion continues</span>
-          <span>Internal political turmoil</span>
+      </div>      <div class="article-card" id="a3">
+        <h4><a href="https://www.nytimes.com/2026/03/24/world/middleeast/us-iran-peace-plan.html" target="_blank">United States Said to Have Sent Iran a Plan to End the Middle East War</a></h4>
+        <p class="source">NY Times — Mar 24, 2026</p>
+        <p class="summary">The 15-point plan was delivered via Pakistan, whose army chief has emerged as the key interlocutor between the United States and Iran, officials say.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=United%20States%20Said%20to%20Have%20Sent%20Iran%20a%20Plan%20to%20End%20the%20Middle%20East%20War&url=https%3A//www.nytimes.com/2026/03/24/world/middleeast/us-iran-peace-plan.html" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.nytimes.com/2026/03/24/world/middleeast/us-iran-peace-plan.html" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=United%20States%20Said%20to%20Have%20Sent%20Iran%20a%20Plan%20to%20End%20the%20Middle%20East%20War%20https%3A//www.nytimes.com/2026/03/24/world/middleeast/us-iran-peace-plan.html" target="_blank">WhatsApp</a>
         </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="https://www.theatlantic.com/international/2026/03/trump-netanyahu-iran-war/686267/" target="_blank">America's and Israel's Goals Are Already Colliding</a></div>
-          <div class="article-meta">The Atlantic — March 2026</div>
+      </div>      <div class="article-card" id="a4">
+        <h4><a href="https://www.nytimes.com/live/2026/03/24/world/iran-war-trump-oil/pakistan-iran-us-mediation" target="_blank">Iran War Live Updates: U.S. Is Said to Have Sent Iran a Peace Plan</a></h4>
+        <p class="source">NY Times — Mar 24, 2026</p>
+        <p class="summary">Pakistan, which has cultivated ties with both Washington and Tehran, sees a diplomatic opening to intervene in the war in Iran, its neighbor.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20War%20Live%20Updates%3A%20U.S.%20Is%20Said%20to%20Have%20Sent%20Iran%20a%20Peace%20Plan&url=https%3A//www.nytimes.com/live/2026/03/24/world/iran-war-trump-oil/pakistan-iran-us-mediation" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.nytimes.com/live/2026/03/24/world/iran-war-trump-oil/pakistan-iran-us-mediation" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20War%20Live%20Updates%3A%20U.S.%20Is%20Said%20to%20Have%20Sent%20Iran%20a%20Peace%20Plan%20https%3A//www.nytimes.com/live/2026/03/24/world/iran-war-trump-oil/pakistan-iran-us-mediation" target="_blank">WhatsApp</a>
         </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="#" target="_blank">US-Israeli Rift Widens Over Endgame in Iran</a></div>
-          <div class="article-meta">Washington Post — March 2026</div>
+      </div>      <div class="article-card" id="a5">
+        <h4><a href="https://www.npr.org/2026/03/24/nx-s1-5759000/iran-war-talks" target="_blank">Iran fires more missiles at Israel and rejects Trump's talk as 'fake news' for markets</a></h4>
+        <p class="source">Npr — Mar 24, 2026</p>
+        <p class="summary">Israeli health officials said Iranian missiles struck four sites across Israel Tuesday, including central Tel Aviv, injuring at least six people. Iranian authorities also said a gas supply line in sou</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20fires%20more%20missiles%20at%20Israel%20and%20rejects%20Trump%27s%20talk%20as%20%27fake%20news%27%20for%20markets&url=https%3A//www.npr.org/2026/03/24/nx-s1-5759000/iran-war-talks" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.npr.org/2026/03/24/nx-s1-5759000/iran-war-talks" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20fires%20more%20missiles%20at%20Israel%20and%20rejects%20Trump%27s%20talk%20as%20%27fake%20news%27%20for%20markets%20https%3A//www.npr.org/2026/03/24/nx-s1-5759000/iran-war-talks" target="_blank">WhatsApp</a>
         </div>
-      </div>
-
-      <div class="section-header">
-        <h2>🇮🇷 Iran — Target / Defender</h2>
-      </div>
-      <div class="country-card">
-        <p class="country-position">Mojtaba Khamenei named new Supreme Leader (Larijani and Soleimani confirmed killed in earlier strikes). Ready for "long war." Refugees flowing to Turkey. IRGC rebooting Hezbollah.</p>
-        <div class="signals">
-          <div class="signals-label">Key Signals</div>
-          <span>Denies all US talks</span>
-          <span>Threatens global tech centres</span>
-          <span>New leader consolidating power</span>
-          <span>Human cost mounting</span>
+      </div>      <div class="article-card" id="a6">
+        <h4><a href="https://www.nytimes.com/2026/03/24/us/politics/saudi-prince-iran-trump.html" target="_blank">Saudi Prince Is Said to Push Trump to Continue Iran War in Recent Calls</a></h4>
+        <p class="source">NY Times — Mar 24, 2026</p>
+        <p class="summary">Prince Mohammed bin Salman sees a "historic opportunity" to remake the region, according to people briefed by U.S. officials on the conversations.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Saudi%20Prince%20Is%20Said%20to%20Push%20Trump%20to%20Continue%20Iran%20War%20in%20Recent%20Calls&url=https%3A//www.nytimes.com/2026/03/24/us/politics/saudi-prince-iran-trump.html" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.nytimes.com/2026/03/24/us/politics/saudi-prince-iran-trump.html" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Saudi%20Prince%20Is%20Said%20to%20Push%20Trump%20to%20Continue%20Iran%20War%20in%20Recent%20Calls%20https%3A//www.nytimes.com/2026/03/24/us/politics/saudi-prince-iran-trump.html" target="_blank">WhatsApp</a>
         </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="https://www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit" target="_blank">Iran Warns of Hits on Energy Sites After Trump Threat</a></div>
-          <div class="article-meta">Al Jazeera — March 23, 2026</div>
+      </div>      <div class="article-card" id="a7">
+        <h4><a href="https://www.usatoday.com/live-story/news/world/2026/03/24/trump-us-israel-iran-war-live-updates/89294787007/" target="_blank">Will Trump make a deal to end the Iran war? Latest updates</a></h4>
+        <p class="source">Usatoday — Mar 24, 2026</p>
+        <p class="summary">The apparent talks aimed at ending the war come as thousands of U.S. troops have been mustered to the region and gas prices continue rising.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Will%20Trump%20make%20a%20deal%20to%20end%20the%20Iran%20war%3F%20Latest%20updates&url=https%3A//www.usatoday.com/live-story/news/world/2026/03/24/trump-us-israel-iran-war-live-updates/89294787007/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.usatoday.com/live-story/news/world/2026/03/24/trump-us-israel-iran-war-live-updates/89294787007/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Will%20Trump%20make%20a%20deal%20to%20end%20the%20Iran%20war%3F%20Latest%20updates%20https%3A//www.usatoday.com/live-story/news/world/2026/03/24/trump-us-israel-iran-war-live-updates/89294787007/" target="_blank">WhatsApp</a>
         </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="https://www.aljazeera.com/news/liveblog/2026/3/18/iran-war-live-tehran-mourns-larijani-soleimani-two-killed-in-israel" target="_blank">Iran: Israel to Pay for Killing Larijani, Soleimani</a></div>
-          <div class="article-meta">Al Jazeera — March 18, 2026</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- GLOBAL POWERS -->
-    <div id="global-powers">
-      <div class="section-header">
-        <h2>🇷🇺 Russia — Strategic Beneficiary</h2>
-      </div>
-      <div class="country-card">
-        <p class="country-position">"Putin tells Tehran: Russia stands by Iran." Oil boom filling coffers. Exploiting US distraction — launching new Ukraine offensive.</p>
-        <div class="signals">
-          <div class="signals-label">Key Signals</div>
-          <span>Public solidarity with Iran</span>
-          <span>Oil revenues surging</span>
-          <span>New Ukraine offensive launched</span>
-          <span>Calculating long-term gains</span>
-        </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="https://www.msn.com/en-ca/news/world/putin-tells-tehran-russia-stands-by-iran/ar-AA1Z6k8Y" target="_blank">Putin Tells Tehran: Russia Stands by Iran</a></div>
-          <div class="article-meta">Reuters / MSN — March 2026</div>
-        </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="#" target="_blank">Russia Sits Back as Iran War Escalates, Expecting Long-Term Gains</a></div>
-          <div class="article-meta">WFMZ — March 2026</div>
-        </div>
-      </div>
-
-      <div class="section-header">
-        <h2>🇨🇳 China — Cautious Observer</h2>
-      </div>
-      <div class="country-card">
-        <p class="country-position">"Urges US, Israel to stop military action." Warns of "vicious cycle." No popular support for regime change. Prolonged war = commodity deals.</p>
-        <div class="signals">
-          <div class="signals-label">Key Signals</div>
-          <span>Calls for ceasefire publicly</span>
-          <span>No support for regime change</span>
-          <span>Prolonged war = commodity deals</span>
-          <span>"Landmark year" for US ties</span>
-        </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="#" target="_blank">Why is China Sitting Out the War on Iran</a></div>
-          <div class="article-meta">TIME — March 20, 2026</div>
-        </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="#" target="_blank">China's Difficult Choice in the Iran-Israel-US War</a></div>
-          <div class="article-meta">The Diplomat — March 2026</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- REGIONAL -->
-    <div id="regional">
-      <div class="section-header">
-        <h2>🇪🇺 Europe — Reluctant Bystander</h2>
-      </div>
-      <div class="country-card">
-        <p class="country-position">Europe "grappling with its role." NATO withdrew troops from Iraq. Spain's PM defies Trump. Worried about migration. Not backing US militarily.</p>
-        <div class="signals">
-          <div class="signals-label">Key Signals</div>
-          <span>Not backing US militarily</span>
-          <span>Worried about refugees</span>
-          <span>Divided continent</span>
-          <span>Europe's role as bystander</span>
-        </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="#" target="_blank">Europe Is Grappling With Its Role in the Iran War</a></div>
-          <div class="article-meta">NPR — March 8, 2026</div>
-        </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="#" target="_blank">Europe's Role as Bystander</a></div>
-          <div class="article-meta">Financial Times — March 2026</div>
-        </div>
-      </div>
-
-      <div class="section-header">
-        <h2>🇸🇦 Gulf States — Hedging</h2>
-      </div>
-      <div class="country-card">
-        <p class="country-position">"Not our war" — but existential threat from Iran. Saudi FM: Gulf patience "not unlimited." Silent support for US/Israel. Saudi arms restock approved.</p>
-        <div class="signals">
-          <div class="signals-label">Key Signals</div>
-          <span>Silent support for US/Israel</span>
-          <span>Tolerated Iranian strikes</span>
-          <span>Saudi: patience "not unlimited"</span>
-          <span>Saudi arms restock approved</span>
-        </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="#" target="_blank">Gulf States Weigh Up Options</a></div>
-          <div class="article-meta">The Guardian — March 20, 2026</div>
-        </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="#" target="_blank">Gulf States Have Tolerated Iranian Strikes So Far</a></div>
-          <div class="article-meta">CNBC — March 2026</div>
-        </div>
-      </div>
-
-      <div class="section-header">
-        <h2>🇹🇷 Turkey — Regional Mediator</h2>
-      </div>
-      <div class="country-card">
-        <p class="country-position">Erdogan: War "must stop before whole region dragged in." Open border — refugees flowing through. Positioning as mediator. Warns against dividing Iran.</p>
-        <div class="signals">
-          <div class="signals-label">Key Signals</div>
-          <span>Open border</span>
-          <span>Warns against dividing Iran</span>
-          <span>Positioning as mediator</span>
-          <span>Refugees flowing</span>
-        </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="https://www.msn.com/en-us/news/world/turkeys-erdogan-says-iran-war-must-stop-before-whole-region-dragged-in/ar-AA1YlKWo" target="_blank">Erdogan's Warning</a></div>
-          <div class="article-meta">Reuters / MSN — March 2026</div>
-        </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="#" target="_blank">Iran War Refugees to Turkey</a></div>
-          <div class="article-meta">NY Times — March 18, 2026</div>
-        </div>
-      </div>
-
-      <div class="section-header">
-        <h2>🇮🇳 India & Pakistan — Dilemma</h2>
-      </div>
-      <div class="country-card">
-        <p class="country-position">India balancing US partnership vs Iran ties. $50bn remittances at risk. Pakistan attempted mediation. Both caught in crossfire.</p>
-        <div class="signals">
-          <div class="signals-label">Key Signals</div>
-          <span>India seeking flexibility</span>
-          <span>Pakistan attempted mediation</span>
-          <span>Both caught in crossfire</span>
-          <span>$50bn remittances at risk</span>
-        </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="#" target="_blank">Why India Faces Dilemma Over Iran War</a></div>
-          <div class="article-meta">SCMP — March 2026</div>
-        </div>
-        <div class="article-card">
-          <div class="article-headline"><a href="#" target="_blank">How War Puts $50bn in Indian Remittances at Risk</a></div>
-          <div class="article-meta">Al Jazeera — March 13, 2026</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- LOCAL MEDIA -->
-    <div id="local-media" class="local-media-section">
-      <div class="section-header">
-        <h2>Local Media Voices</h2>
-      </div>
-
-      <div class="media-group">
-        <div class="media-group-header">🇷🇺 Russian Media</div>
-        <div class="media-item"><span class="media-source">TASS:</span> <a href="#" target="_blank">Russia Sits Back Expecting Long-Term Gains</a> <span class="media-desc">— Putin calculates opportunity</span></div>
-        <div class="media-item"><span class="media-source">Rossiyskaya Gazeta:</span> <a href="#" target="_blank">Russia Stands by Iran</a> <span class="media-desc">— Solidarity masks calculation</span></div>
-        <div class="media-item"><span class="media-source">RT:</span> <a href="#" target="_blank">Trump's War Hands Putin an Opportunity</a> <span class="media-desc">— US framed as aggressor</span></div>
-      </div>
-
-      <div class="media-group">
-        <div class="media-group-header">🇨🇳 Chinese Media</div>
-        <div class="media-item"><span class="media-source">SCMP:</span> <a href="#" target="_blank">China's $24bn Seaport Push; War a Wake-Up Call</a> <span class="media-desc">— Beijing watching</span></div>
-        <div class="media-item"><span class="media-source">Global Times:</span> <a href="#" target="_blank">China Urges Restraint But Won't Challenge US</a> <span class="media-desc">— Toned down</span></div>
-        <div class="media-item"><span class="media-source">People's Daily:</span> <a href="#" target="_blank">China Calls for Ceasefire</a> <span class="media-desc">— Official diplomatic posture</span></div>
-      </div>
-
-      <div class="media-group">
-        <div class="media-group-header">🇸🇦 Gulf Media</div>
-        <div class="media-item"><span class="media-source">Al Arabiya:</span> <a href="#" target="_blank">Saudi Arabia Warns Iran Will Be Biggest Loser</a> <span class="media-desc">— Riyadh openly hostile</span></div>
-        <div class="media-item"><span class="media-source">Asharq Al-Awsat:</span> <a href="#" target="_blank">Saudi FM: We Have Right to Military Action</a> <span class="media-desc">— Boldest Gulf statement</span></div>
-        <div class="media-item"><span class="media-source">Gulf News:</span> <a href="#" target="_blank">Iran War Tightens Gulf-US Ties</a> <span class="media-desc">— UAE drawing closer</span></div>
-      </div>
-    </div>
-
-    <!-- SUMMARY TABLE -->
-    <div id="summary" style="margin-top: 30px;">
-      <div class="section-header">
-        <h2>Summary — Global Response Matrix</h2>
-      </div>
-      <div style="overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; font-size: 0.82rem;">
-          <thead>
-            <tr>
-              <th style="background:#eee; padding:10px 14px; text-align:left; font-weight:700; border-bottom:2px solid #ccc; white-space:nowrap;">Nation</th>
-              <th style="background:#eee; padding:10px 14px; text-align:left; font-weight:700; border-bottom:2px solid #ccc;">Role</th>
-              <th style="background:#eee; padding:10px 14px; text-align:left; font-weight:700; border-bottom:2px solid #ccc; white-space:nowrap;">Military</th>
-              <th style="background:#eee; padding:10px 14px; text-align:left; font-weight:700; border-bottom:2px solid #ccc;">Diplomacy</th>
-              <th style="background:#eee; padding:10px 14px; text-align:left; font-weight:700; border-bottom:2px solid #ccc;">Economic</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇺🇸 United States</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee;">Lead Belligerent</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">$11.3B | Hegseth: "just getting started"</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Extends Hormuz 5 days | Claims "regime change" | Criticises NATO</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Approved Saudi arms restock</td>
-            </tr>
-            <tr>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇮🇱 Israel</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee;">Co-Belligerent</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Ground incursion vs Hezbollah | Expanding strikes | Larijani & Soleimani killed</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Wants regime change | US wants nuclear deal | US-Israel rift</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">—</td>
-            </tr>
-            <tr>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇮🇷 Iran</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee;">Defender</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">IRGC rebooting Hezbollah | Ready for long war</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Denies all US talks | New leader Mojtaba Khamenei</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Refugees flowing to Turkey</td>
-            </tr>
-            <tr>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇷🇺 Russia</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee;">Strategic Beneficiary</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">New Ukraine offensive launched | Oil boom</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">"Stands by Iran" publicly</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Oil surge revenues</td>
-            </tr>
-            <tr>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇨🇳 China</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee;">Cautious Observer</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">No involvement</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Urges ceasefire | No support for regime change</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Commodity deals from prolonged war</td>
-            </tr>
-            <tr>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇪🇺 Europe</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee;">Reluctant Bystander</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">NATO withdrew from Iraq | Not backing US</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Spain's PM defies Trump | Divided continent</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Refugee worry</td>
-            </tr>
-            <tr>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇸🇦 Gulf States</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee;">Hedging</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Silent support for US/Israel | Tolerated Iranian strikes</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Saudi: patience "not unlimited"</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Arms restock approved</td>
-            </tr>
-            <tr>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇹🇷 Turkey</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee;">Regional Mediator</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Open border | Refugees flowing</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Warns region dragged in | Positioning as mediator</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Refugee burden</td>
-            </tr>
-            <tr>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-weight:700; white-space:nowrap;">🇮🇳 India & Pakistan</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee;">Dilemma</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">Both caught in crossfire</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">India seeking flexibility | Pakistan hedging</td>
-              <td style="padding:10px 14px; border-bottom:1px solid #eee; font-size:0.78rem;">$50bn remittances at risk</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
+      </div></div>
   </div>
 
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-    <div class="aj-box">
-      <h3>🔵 Al Jazeera Live</h3>
-      <div class="aj-item"><a href="https://www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit" target="_blank">Iran War Live — Day 23: Tehran Vows to Close Hormuz If Power Plants Hit</a></div>
-      <div class="aj-item"><a href="https://www.aljazeera.com/news/liveblog/2026/3/18/iran-war-live-tehran-mourns-larijani-soleimani-two-killed-in-israel" target="_blank">Iran War Live — Larijani, Soleimani Mourned; Israel Claims Killings</a></div>
-      <div class="aj-item"><a href="https://www.aljazeera.com/news/2026/03/iraq-iran-war-analysis" target="_blank">Analysis: How the Iran War Is Reshaping the Middle East</a></div>
-      <div class="aj-item"><a href="https://www.aljazeera.com/news/2026/03/gulf-states-iran-war-options" target="_blank">Gulf States and the Iran War: Weighing Options</a></div>
-      <div class="aj-item"><a href="https://www.aljazeera.com/news/2026/03/china-ceasefire-call-iran" target="_blank">China Calls for Ceasefire as War Enters Third Week</a></div>
-    </div>
-
-    <div style="background:#fff; border:1px solid #e0e0e0; padding:15px; margin-bottom:20px;">
-      <h3 style="font-family:Georgia,serif; font-size:0.95rem; font-weight:700; margin-bottom:10px;">📊 Quick Stats</h3>
-      <div style="font-size:0.8rem; line-height:2;">
-        <div><strong>Day:</strong> 23</div>
-        <div><strong>Cost:</strong> $11.3B (Week 1)</div>
-        <div><strong>Casualties:</strong> ~140 wounded</div>
-        <div><strong>Oil Impact:</strong> +39%</div>
-        <div><strong>Nations Involved:</strong> 7+</div>
-        <div><strong>Hormuz Deadline:</strong> +5 days</div>
-      </div>
-    </div>
-
-    <div style="background:#fff; border:1px solid #e0e0e0; padding:15px;">
-      <h3 style="font-family:Georgia,serif; font-size:0.95rem; font-weight:700; margin-bottom:10px;">📰 More Coverage</h3>
-      <div class="aj-item"><a href="https://time.com/article/2026/03/13/trump-iran-hormuz-oil-gas-war/" target="_blank">TIME: Why the War Could Be a Long One</a></div>
-      <div class="aj-item"><a href="https://www.theatlantic.com/international/2026/03/trump-netanyahu-iran-war/686267/" target="_blank">The Atlantic: US-Israel Goals Colliding</a></div>
-      <div class="aj-item"><a href="https://www.pbs.org/newshour/world/ukraines-pressure-grows-as-war-in-iran-deepens-and-russia-readies-a-new-offensive" target="_blank">PBS: Ukraine Pressure Grows</a></div>
-    </div>
+  <div class="section" id="israel">
+    <h2>🇮🇱 Israel</h2>
+    <div class="section-cards">      <div class="article-card" id="a0">
+        <h4><a href="https://www.msn.com/en-in/news/world/who-is-mohammad-bagher-ghalibaf-iran-speaker-in-focus-as-top-person-in-trump-talks-claim-he-denies/ar-AA1ZeG83" target="_blank">Who is Mohammad-Bagher Ghalibaf? Iran speaker in focus as 'top person' in Trump talks claim, he denies</a></h4>
+        <p class="source">Msn — Mar 23, 2026</p>
+        <p class="summary">Amid buzz on the 'top person' named by Donald Trump, a report claimed that Mohammad Ghalibaf was leading the talks on Iran's behalf.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Who%20is%20Mohammad-Bagher%20Ghalibaf%3F%20Iran%20speaker%20in%20focus%20as%20%27top%20person%27%20in%20Trump%20talks%20claim%2C%20he%20denies&url=https%3A//www.msn.com/en-in/news/world/who-is-mohammad-bagher-ghalibaf-iran-speaker-in-focus-as-top-person-in-trump-talks-claim-he-denies/ar-AA1ZeG83" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-in/news/world/who-is-mohammad-bagher-ghalibaf-iran-speaker-in-focus-as-top-person-in-trump-talks-claim-he-denies/ar-AA1ZeG83" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Who%20is%20Mohammad-Bagher%20Ghalibaf%3F%20Iran%20speaker%20in%20focus%20as%20%27top%20person%27%20in%20Trump%20talks%20claim%2C%20he%20denies%20https%3A//www.msn.com/en-in/news/world/who-is-mohammad-bagher-ghalibaf-iran-speaker-in-focus-as-top-person-in-trump-talks-claim-he-denies/ar-AA1ZeG83" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a1">
+        <h4><a href="https://jewishinsider.com/2026/03/trump-kushner-witkoff-iran-diplomacy-strait-hormuz/" target="_blank">Trump: Jared Kushner, Steve Witkoff negotiating potential deal with Iran</a></h4>
+        <p class="source">Jewishinsider — Mar 23, 2026</p>
+        <p class="summary">President Donald Trump revealed on Monday that White House Special Envoy Steve Witkoff and advisor Jared Kushner have been negotiating with Iran amid the ongoing war, which played</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Trump%3A%20Jared%20Kushner%2C%20Steve%20Witkoff%20negotiating%20potential%20deal%20with%20Iran&url=https%3A//jewishinsider.com/2026/03/trump-kushner-witkoff-iran-diplomacy-strait-hormuz/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//jewishinsider.com/2026/03/trump-kushner-witkoff-iran-diplomacy-strait-hormuz/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Trump%3A%20Jared%20Kushner%2C%20Steve%20Witkoff%20negotiating%20potential%20deal%20with%20Iran%20https%3A//jewishinsider.com/2026/03/trump-kushner-witkoff-iran-diplomacy-strait-hormuz/" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a2">
+        <h4><a href="https://www.clevelandjewishnews.com/jns/the-gulf-s-strategic-restraint-and-the-iran-war/article_9345b517-0b56-53ac-afc2-e40e22dbe78a.html" target="_blank">The Gulf's strategic restraint and the Iran war</a></h4>
+        <p class="source">Clevelandjewishnews — Mar 13, 2026</p>
+        <p class="summary">Saudi Arabia, UAE, Qatar, Kuwait, Oman and Bahrain have insisted on maintaining a policy of absolute military passivity.The post The Gulf's strategic restraint and the Iran war appeared first on</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=The%20Gulf%27s%20strategic%20restraint%20and%20the%20Iran%20war&url=https%3A//www.clevelandjewishnews.com/jns/the-gulf-s-strategic-restraint-and-the-iran-war/article_9345b517-0b56-53ac-afc2-e40e22dbe78a.html" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.clevelandjewishnews.com/jns/the-gulf-s-strategic-restraint-and-the-iran-war/article_9345b517-0b56-53ac-afc2-e40e22dbe78a.html" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=The%20Gulf%27s%20strategic%20restraint%20and%20the%20Iran%20war%20https%3A//www.clevelandjewishnews.com/jns/the-gulf-s-strategic-restraint-and-the-iran-war/article_9345b517-0b56-53ac-afc2-e40e22dbe78a.html" target="_blank">WhatsApp</a>
+        </div>
+      </div></div>
   </div>
+
+  <div class="section" id="iran">
+    <h2>🇮🇷 Iran</h2>
+    <div class="section-cards">      <div class="article-card" id="a0">
+        <h4><a href="https://www.thestar.com.my/news/nation/2026/03/25/iranian-malaysian-foreign-ministers-discuss-ties-latest-war-developments" target="_blank">Iranian, Malaysian foreign ministers discuss ties, latest war developments</a></h4>
+        <p class="source">Thestar — Mar 25, 2026</p>
+        <p class="summary">TEHRAN: Iranian Foreign Minister Abbas Araghchi and his Malaysian counterpart Datuk Seri Mohamad Hasan held a telephone conversation on Tuesday (March 25) to discuss mutual ties and the latest war dev</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iranian%2C%20Malaysian%20foreign%20ministers%20discuss%20ties%2C%20latest%20war%20developments&url=https%3A//www.thestar.com.my/news/nation/2026/03/25/iranian-malaysian-foreign-ministers-discuss-ties-latest-war-developments" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.thestar.com.my/news/nation/2026/03/25/iranian-malaysian-foreign-ministers-discuss-ties-latest-war-developments" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iranian%2C%20Malaysian%20foreign%20ministers%20discuss%20ties%2C%20latest%20war%20developments%20https%3A//www.thestar.com.my/news/nation/2026/03/25/iranian-malaysian-foreign-ministers-discuss-ties-latest-war-developments" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a1">
+        <h4><a href="https://www.livemint.com/news/world/us-israel-iran-war-news-live-updates-march-25-strait-of-hormuz-crude-oil-price-gold-market-peace-plan-donald-trump-11774396644720.html" target="_blank">Iran US War News LIVE: Australia to temporarily restrict Iranian visitor visa holders from travelling — here's why</a></h4>
+        <p class="source">Livemint — Mar 25, 2026</p>
+        <p class="summary">The 15‑point plan was delivered to Iran through intermediaries from Pakistan, who have also offered to host renewed negotiations between Washington and Tehran, AP reported citing sources.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20US%20War%20News%20LIVE%3A%20Australia%20to%20temporarily%20restrict%20Iranian%20visitor%20visa%20holders%20from%20travelling%20%E2%80%94%20here%27s%20why&url=https%3A//www.livemint.com/news/world/us-israel-iran-war-news-live-updates-march-25-strait-of-hormuz-crude-oil-price-gold-market-peace-plan-donald-trump-11774396644720.html" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.livemint.com/news/world/us-israel-iran-war-news-live-updates-march-25-strait-of-hormuz-crude-oil-price-gold-market-peace-plan-donald-trump-11774396644720.html" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20US%20War%20News%20LIVE%3A%20Australia%20to%20temporarily%20restrict%20Iranian%20visitor%20visa%20holders%20from%20travelling%20%E2%80%94%20here%27s%20why%20https%3A//www.livemint.com/news/world/us-israel-iran-war-news-live-updates-march-25-strait-of-hormuz-crude-oil-price-gold-market-peace-plan-donald-trump-11774396644720.html" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a2">
+        <h4><a href="https://economictimes.indiatimes.com/news/newsblogs/iran-war-live-updates-strait-of-hormuz-iran-donald-trump-mojtaba-khamenei-uae-dubai-middle-east-war-latest-news/liveblog/129711720.cms" target="_blank">US-Israel-Iran War Live News Updates: Trump says US has "major points of agreement" in Iran talks, adds he is in contact</a></h4>
+        <p class="source">Economictimes — Mar 23, 2026</p>
+        <p class="summary">The foreign ministers of the Group of Seven countries said on Saturday they stood ready to take ‌necessary ⁠measures ⁠to support global energy supplies and reaffirmed the importance of safeguarding ma</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=US-Israel-Iran%20War%20Live%20News%20Updates%3A%20Trump%20says%20US%20has%20%22major%20points%20of%20agreement%22%20in%20Iran%20talks%2C%20adds%20he%20is%20in%20contact&url=https%3A//economictimes.indiatimes.com/news/newsblogs/iran-war-live-updates-strait-of-hormuz-iran-donald-trump-mojtaba-khamenei-uae-dubai-middle-east-war-latest-news/liveblog/129711720.cms" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//economictimes.indiatimes.com/news/newsblogs/iran-war-live-updates-strait-of-hormuz-iran-donald-trump-mojtaba-khamenei-uae-dubai-middle-east-war-latest-news/liveblog/129711720.cms" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=US-Israel-Iran%20War%20Live%20News%20Updates%3A%20Trump%20says%20US%20has%20%22major%20points%20of%20agreement%22%20in%20Iran%20talks%2C%20adds%20he%20is%20in%20contact%20https%3A//economictimes.indiatimes.com/news/newsblogs/iran-war-live-updates-strait-of-hormuz-iran-donald-trump-mojtaba-khamenei-uae-dubai-middle-east-war-latest-news/liveblog/129711720.cms" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a3">
+        <h4><a href="https://www.msn.com/en-us/news/world/iranian-intelligence-sends-word-to-us-on-potential-talks-to-end-war-but-us-officials-say-no-active-negotiations/ar-AA1XwZSV" target="_blank">Iranian intelligence sends word to US on potential talks to end war, but US officials say no active negotiations</a></h4>
+        <p class="source">Msn — Mar 05, 2026</p>
+        <p class="summary">Iranian intelligence has sent word to the United States it could be prepared to open talks on how to end the war, according to people familiar with the indirect messages, but US officials say there ar</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iranian%20intelligence%20sends%20word%20to%20US%20on%20potential%20talks%20to%20end%20war%2C%20but%20US%20officials%20say%20no%20active%20negotiations&url=https%3A//www.msn.com/en-us/news/world/iranian-intelligence-sends-word-to-us-on-potential-talks-to-end-war-but-us-officials-say-no-active-negotiations/ar-AA1XwZSV" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-us/news/world/iranian-intelligence-sends-word-to-us-on-potential-talks-to-end-war-but-us-officials-say-no-active-negotiations/ar-AA1XwZSV" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iranian%20intelligence%20sends%20word%20to%20US%20on%20potential%20talks%20to%20end%20war%2C%20but%20US%20officials%20say%20no%20active%20negotiations%20https%3A//www.msn.com/en-us/news/world/iranian-intelligence-sends-word-to-us-on-potential-talks-to-end-war-but-us-officials-say-no-active-negotiations/ar-AA1XwZSV" target="_blank">WhatsApp</a>
+        </div>
+      </div></div>
+  </div>
+
+  <div class="section" id="russia--ukraine">
+    <h2>🇷🇺 Russia & Ukraine</h2>
+    <div class="section-cards">      <div class="article-card" id="a0">
+        <h4><a href="https://www.thehindu.com/news/international/iran-israel-war-west-asia-conflict-march-25-2026-live-updates/article70782463.ece" target="_blank">Iran-Israel war LIVE: Iran has received 15-point U.S. ceasefire proposal, says report</a></h4>
+        <p class="source">Thehindu — Mar 25, 2026</p>
+        <p class="summary">Meanwhile, Iran launched a new missile salvo across the region today, after U.S. President Donald Trump's signals that he was eager to talk with Tehran steadied global markets. Iran's Revolutionary Gu</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran-Israel%20war%20LIVE%3A%20Iran%20has%20received%2015-point%20U.S.%20ceasefire%20proposal%2C%20says%20report&url=https%3A//www.thehindu.com/news/international/iran-israel-war-west-asia-conflict-march-25-2026-live-updates/article70782463.ece" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.thehindu.com/news/international/iran-israel-war-west-asia-conflict-march-25-2026-live-updates/article70782463.ece" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran-Israel%20war%20LIVE%3A%20Iran%20has%20received%2015-point%20U.S.%20ceasefire%20proposal%2C%20says%20report%20https%3A//www.thehindu.com/news/international/iran-israel-war-west-asia-conflict-march-25-2026-live-updates/article70782463.ece" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a1">
+        <h4><a href="https://www.financialexpress.com/world-news/us-iran-israel-war-live-updates-trump-peace-talks-middle-east-oil-price/4183313/" target="_blank">US-Israel-Iran War Live News: Indian oil companies say 'no fuel shortage'; Iran turns back Karachi-bound ship at Hormuz </a></h4>
+        <p class="source">Financialexpress — Mar 25, 2026</p>
+        <p class="summary">Trump declares "we've won this" and claims Iran offered a "significant prize" on Hormuz. Tehran denies any talks but admits receiving US messages via mediators. Pakistan offers to host peace talks. Mi</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=US-Israel-Iran%20War%20Live%20News%3A%20Indian%20oil%20companies%20say%20%27no%20fuel%20shortage%27%3B%20Iran%20turns%20back%20Karachi-bound%20ship%20at%20Hormuz%20&url=https%3A//www.financialexpress.com/world-news/us-iran-israel-war-live-updates-trump-peace-talks-middle-east-oil-price/4183313/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.financialexpress.com/world-news/us-iran-israel-war-live-updates-trump-peace-talks-middle-east-oil-price/4183313/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=US-Israel-Iran%20War%20Live%20News%3A%20Indian%20oil%20companies%20say%20%27no%20fuel%20shortage%27%3B%20Iran%20turns%20back%20Karachi-bound%20ship%20at%20Hormuz%20%20https%3A//www.financialexpress.com/world-news/us-iran-israel-war-live-updates-trump-peace-talks-middle-east-oil-price/4183313/" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a2">
+        <h4><a href="https://www.financialexpress.com/world-news/us-iran-israel-war-live-updates-trump-peace-talks-middle-east-oil-price/4183313/?ref=ReadNext_article_3" target="_blank">US-Israel-Iran War Live News: Iran turns back Karachi-bound ship at Strait of Hormuz, allows Thai Tanker safe passage as</a></h4>
+        <p class="source">Financialexpress — Mar 25, 2026</p>
+        <p class="summary">Trump declares "we've won this" and claims Iran offered a "significant prize" on Hormuz. Tehran denies any talks but admits receiving US messages via mediators. Pakistan offers to host peace talks. Mi</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=US-Israel-Iran%20War%20Live%20News%3A%20Iran%20turns%20back%20Karachi-bound%20ship%20at%20Strait%20of%20Hormuz%2C%20allows%20Thai%20Tanker%20safe%20passage%20as&url=https%3A//www.financialexpress.com/world-news/us-iran-israel-war-live-updates-trump-peace-talks-middle-east-oil-price/4183313/%3Fref%3DReadNext_article_3" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.financialexpress.com/world-news/us-iran-israel-war-live-updates-trump-peace-talks-middle-east-oil-price/4183313/%3Fref%3DReadNext_article_3" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=US-Israel-Iran%20War%20Live%20News%3A%20Iran%20turns%20back%20Karachi-bound%20ship%20at%20Strait%20of%20Hormuz%2C%20allows%20Thai%20Tanker%20safe%20passage%20as%20https%3A//www.financialexpress.com/world-news/us-iran-israel-war-live-updates-trump-peace-talks-middle-east-oil-price/4183313/%3Fref%3DReadNext_article_3" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a3">
+        <h4><a href="https://www.cnbc.com/2026/03/24/trump-iran-war-negotiations.html" target="_blank">U.S. sent Iran 15-point plan to end war, report says; Trump says 'in negotiations right now'</a></h4>
+        <p class="source">Cnbc — Mar 24, 2026</p>
+        <p class="summary">"Operation Epic Fury continues unabated" to achieve President Donald Trump's military objectives, White House press secretary Karoline Leavitt said.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=U.S.%20sent%20Iran%2015-point%20plan%20to%20end%20war%2C%20report%20says%3B%20Trump%20says%20%27in%20negotiations%20right%20now%27&url=https%3A//www.cnbc.com/2026/03/24/trump-iran-war-negotiations.html" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.cnbc.com/2026/03/24/trump-iran-war-negotiations.html" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=U.S.%20sent%20Iran%2015-point%20plan%20to%20end%20war%2C%20report%20says%3B%20Trump%20says%20%27in%20negotiations%20right%20now%27%20https%3A//www.cnbc.com/2026/03/24/trump-iran-war-negotiations.html" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a4">
+        <h4><a href="https://www.financialexpress.com/world-news/us-israel-iran-war-live-say-goodbye-to-electricity-iran-warns-of-attack-on-gulf-power-plants-as-trumps-48-hour-deadline-ticks-down-india-mulls-deploying-indian-navy-in-hormuz/4180375/" target="_blank">US-Israel-Iran War LIVE: Two Indian LPG ships to reach port by March 28; Trump on the backfoot as costs rise, blames US </a></h4>
+        <p class="source">Financialexpress — Mar 24, 2026</p>
+        <p class="summary">Benjamin Netanyahu says Donald Trump sees an "opportunity" after US military gains, as Israel continues strikes in Iran and Lebanon, targets nuclear program, and vows to protect its vital interests.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=US-Israel-Iran%20War%20LIVE%3A%20Two%20Indian%20LPG%20ships%20to%20reach%20port%20by%20March%2028%3B%20Trump%20on%20the%20backfoot%20as%20costs%20rise%2C%20blames%20US%20&url=https%3A//www.financialexpress.com/world-news/us-israel-iran-war-live-say-goodbye-to-electricity-iran-warns-of-attack-on-gulf-power-plants-as-trumps-48-hour-deadline-ticks-down-india-mulls-deploying-indian-navy-in-hormuz/4180375/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.financialexpress.com/world-news/us-israel-iran-war-live-say-goodbye-to-electricity-iran-warns-of-attack-on-gulf-power-plants-as-trumps-48-hour-deadline-ticks-down-india-mulls-deploying-indian-navy-in-hormuz/4180375/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=US-Israel-Iran%20War%20LIVE%3A%20Two%20Indian%20LPG%20ships%20to%20reach%20port%20by%20March%2028%3B%20Trump%20on%20the%20backfoot%20as%20costs%20rise%2C%20blames%20US%20%20https%3A//www.financialexpress.com/world-news/us-israel-iran-war-live-say-goodbye-to-electricity-iran-warns-of-attack-on-gulf-power-plants-as-trumps-48-hour-deadline-ticks-down-india-mulls-deploying-indian-navy-in-hormuz/4180375/" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a5">
+        <h4><a href="https://greekreporter.com/2026/03/23/trump-delays-iran-strikes-talks-end-war-iran-denies/" target="_blank">Trump Delays Iran Strikes, Claims Talks to End War as Iran Denies Contact</a></h4>
+        <p class="source">Greekreporter — Mar 23, 2026</p>
+        <p class="summary">Trump delays Iran strikes for five days as Washington says talks are underway, but Tehran denies any contact with U.S. officials.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Trump%20Delays%20Iran%20Strikes%2C%20Claims%20Talks%20to%20End%20War%20as%20Iran%20Denies%20Contact&url=https%3A//greekreporter.com/2026/03/23/trump-delays-iran-strikes-talks-end-war-iran-denies/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//greekreporter.com/2026/03/23/trump-delays-iran-strikes-talks-end-war-iran-denies/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Trump%20Delays%20Iran%20Strikes%2C%20Claims%20Talks%20to%20End%20War%20as%20Iran%20Denies%20Contact%20https%3A//greekreporter.com/2026/03/23/trump-delays-iran-strikes-talks-end-war-iran-denies/" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a6">
+        <h4><a href="https://www.msn.com/en-in/news/world/iran-us-war-live-updates-hours-after-trump-signals-peace-israel-strikes-key-military-headquarters-in-tehran/ar-AA1ZbyC4" target="_blank">Iran US war LIVE updates: Hours after Trump signals peace, Israel strikes key military headquarters in Tehran</a></h4>
+        <p class="source">Msn — Mar 23, 2026</p>
+        <p class="summary">Iran US war LIVE updates: Donald Trump said that based on the "tenor and tone" of the ongoing discussions, he has instructed the US department of war to postpone any planned military strikes on Irania</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20US%20war%20LIVE%20updates%3A%20Hours%20after%20Trump%20signals%20peace%2C%20Israel%20strikes%20key%20military%20headquarters%20in%20Tehran&url=https%3A//www.msn.com/en-in/news/world/iran-us-war-live-updates-hours-after-trump-signals-peace-israel-strikes-key-military-headquarters-in-tehran/ar-AA1ZbyC4" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-in/news/world/iran-us-war-live-updates-hours-after-trump-signals-peace-israel-strikes-key-military-headquarters-in-tehran/ar-AA1ZbyC4" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20US%20war%20LIVE%20updates%3A%20Hours%20after%20Trump%20signals%20peace%2C%20Israel%20strikes%20key%20military%20headquarters%20in%20Tehran%20https%3A//www.msn.com/en-in/news/world/iran-us-war-live-updates-hours-after-trump-signals-peace-israel-strikes-key-military-headquarters-in-tehran/ar-AA1ZbyC4" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a7">
+        <h4><a href="https://www.yahoo.com/news/articles/iran-wants-deal-end-war-165531511.html" target="_blank">Iran Wants To Make Deal To End War, Trump Claims (Updated)</a></h4>
+        <p class="source">Yahoo — Mar 23, 2026</p>
+        <p class="summary">The U.S. president says Tehran reached out to try to negotiate a deal, something that Iran has vehemently denied.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20Wants%20To%20Make%20Deal%20To%20End%20War%2C%20Trump%20Claims%20%28Updated%29&url=https%3A//www.yahoo.com/news/articles/iran-wants-deal-end-war-165531511.html" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.yahoo.com/news/articles/iran-wants-deal-end-war-165531511.html" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20Wants%20To%20Make%20Deal%20To%20End%20War%2C%20Trump%20Claims%20%28Updated%29%20https%3A//www.yahoo.com/news/articles/iran-wants-deal-end-war-165531511.html" target="_blank">WhatsApp</a>
+        </div>
+      </div></div>
+  </div>
+
+  <div class="section" id="china">
+    <h2>🇨🇳 China</h2>
+    <div class="section-cards">      <div class="article-card" id="a0">
+        <h4><a href="https://www.msn.com/en-us/news/world/us-talking-to-itself-says-iran-as-trump-claims-wheels-of-diplomacy-turning/ar-AA1ZlWqQ" target="_blank">US talking to itself, says Iran as Trump claims wheels of diplomacy turning</a></h4>
+        <p class="source">Msn — Mar 25, 2026</p>
+        <p class="summary">Iranian officials continue to deny any peace talks, amid reports the US sent the country a ceasefire proposal.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=US%20talking%20to%20itself%2C%20says%20Iran%20as%20Trump%20claims%20wheels%20of%20diplomacy%20turning&url=https%3A//www.msn.com/en-us/news/world/us-talking-to-itself-says-iran-as-trump-claims-wheels-of-diplomacy-turning/ar-AA1ZlWqQ" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-us/news/world/us-talking-to-itself-says-iran-as-trump-claims-wheels-of-diplomacy-turning/ar-AA1ZlWqQ" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=US%20talking%20to%20itself%2C%20says%20Iran%20as%20Trump%20claims%20wheels%20of%20diplomacy%20turning%20https%3A//www.msn.com/en-us/news/world/us-talking-to-itself-says-iran-as-trump-claims-wheels-of-diplomacy-turning/ar-AA1ZlWqQ" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a1">
+        <h4><a href="https://www.boisestatepublicradio.org/2026-03-24/trump-says-the-us-is-in-talks-with-iran-to-end-the-war-which-iran-denies" target="_blank">Trump says the US is in talks with Iran to end the war, which Iran denies</a></h4>
+        <p class="source">Boisestatepublicradio — Mar 24, 2026</p>
+        <p class="summary">Trump's claim of "very good" talks with Iran contrasts sharply with Tehran's denial, as escalating tensions and backchannel diplomacy raise fears of a wider war in the Gulf.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Trump%20says%20the%20US%20is%20in%20talks%20with%20Iran%20to%20end%20the%20war%2C%20which%20Iran%20denies&url=https%3A//www.boisestatepublicradio.org/2026-03-24/trump-says-the-us-is-in-talks-with-iran-to-end-the-war-which-iran-denies" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.boisestatepublicradio.org/2026-03-24/trump-says-the-us-is-in-talks-with-iran-to-end-the-war-which-iran-denies" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Trump%20says%20the%20US%20is%20in%20talks%20with%20Iran%20to%20end%20the%20war%2C%20which%20Iran%20denies%20https%3A//www.boisestatepublicradio.org/2026-03-24/trump-says-the-us-is-in-talks-with-iran-to-end-the-war-which-iran-denies" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a2">
+        <h4><a href="https://www.theweek.in/news/middle-east/2026/03/24/fact-check-did-trump-decline-pakistan-army-chief-azim-munirs-offer-to-host-us-iran-mediation-talks-in-islamabad.html" target="_blank">FACT CHECK: Did Trump decline Pakistan Army Chief Asim Munir's offer to host US-Iran mediation talks in Islamabad?</a></h4>
+        <p class="source">Theweek — Mar 24, 2026</p>
+        <p class="summary">Pakistan reportedly offered to mediate US-Iran talks, with reports suggesting a potential summit in Islamabad, though official confirmation is pending</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=FACT%20CHECK%3A%20Did%20Trump%20decline%20Pakistan%20Army%20Chief%20Asim%20Munir%27s%20offer%20to%20host%20US-Iran%20mediation%20talks%20in%20Islamabad%3F&url=https%3A//www.theweek.in/news/middle-east/2026/03/24/fact-check-did-trump-decline-pakistan-army-chief-azim-munirs-offer-to-host-us-iran-mediation-talks-in-islamabad.html" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.theweek.in/news/middle-east/2026/03/24/fact-check-did-trump-decline-pakistan-army-chief-azim-munirs-offer-to-host-us-iran-mediation-talks-in-islamabad.html" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=FACT%20CHECK%3A%20Did%20Trump%20decline%20Pakistan%20Army%20Chief%20Asim%20Munir%27s%20offer%20to%20host%20US-Iran%20mediation%20talks%20in%20Islamabad%3F%20https%3A//www.theweek.in/news/middle-east/2026/03/24/fact-check-did-trump-decline-pakistan-army-chief-azim-munirs-offer-to-host-us-iran-mediation-talks-in-islamabad.html" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a3">
+        <h4><a href="https://www.business-standard.com/world-news/iran-wants-to-make-a-deal-says-trump-but-tehran-denies-any-talks-126032400076_1.html" target="_blank">Iran 'wants to make a deal', says Trump, but Tehran denies any talks</a></h4>
+        <p class="source">Business-Standard — Mar 24, 2026</p>
+        <p class="summary">US President Donald Trump extended his deadline for Iran to reopen the Strait of Hormuz on Monday, saying the US will hold off striking Iranian power plants for five more days.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20%27wants%20to%20make%20a%20deal%27%2C%20says%20Trump%2C%20but%20Tehran%20denies%20any%20talks&url=https%3A//www.business-standard.com/world-news/iran-wants-to-make-a-deal-says-trump-but-tehran-denies-any-talks-126032400076_1.html" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.business-standard.com/world-news/iran-wants-to-make-a-deal-says-trump-but-tehran-denies-any-talks-126032400076_1.html" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20%27wants%20to%20make%20a%20deal%27%2C%20says%20Trump%2C%20but%20Tehran%20denies%20any%20talks%20https%3A//www.business-standard.com/world-news/iran-wants-to-make-a-deal-says-trump-but-tehran-denies-any-talks-126032400076_1.html" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a4">
+        <h4><a href="https://www.local10.com/news/2026/03/23/the-latest-trump-says-iran-wants-to-make-a-deal-but-the-islamic-republic-denies-any-talks/" target="_blank">The Latest: Trump says Iran 'wants to make a deal' but the Islamic Republic denies any talks</a></h4>
+        <p class="source">Local10 — Mar 23, 2026</p>
+        <p class="summary">U.S. President Donald Trump extended his deadline for Iran to reopen the Strait of Hormuz on Monday, saying the U.S. will hold off striking Iranian power plants for five more days</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=The%20Latest%3A%20Trump%20says%20Iran%20%27wants%20to%20make%20a%20deal%27%20but%20the%20Islamic%20Republic%20denies%20any%20talks&url=https%3A//www.local10.com/news/2026/03/23/the-latest-trump-says-iran-wants-to-make-a-deal-but-the-islamic-republic-denies-any-talks/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.local10.com/news/2026/03/23/the-latest-trump-says-iran-wants-to-make-a-deal-but-the-islamic-republic-denies-any-talks/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=The%20Latest%3A%20Trump%20says%20Iran%20%27wants%20to%20make%20a%20deal%27%20but%20the%20Islamic%20Republic%20denies%20any%20talks%20https%3A//www.local10.com/news/2026/03/23/the-latest-trump-says-iran-wants-to-make-a-deal-but-the-islamic-republic-denies-any-talks/" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a5">
+        <h4><a href="https://www.msn.com/en-us/news/world/how-trump-shifted-from-threatening-iran-s-power-plants-to-touting-peace-talks/ar-AA1ZfMJB" target="_blank">How Trump shifted from threatening Iran's power plants to touting peace talks</a></h4>
+        <p class="source">Msn — Mar 23, 2026</p>
+        <p class="summary">President Donald Trump's sudden turnabout and, according to him, rapidly advancing peace talks made for an abrupt shift in the administration's approach to the Iran war.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=How%20Trump%20shifted%20from%20threatening%20Iran%27s%20power%20plants%20to%20touting%20peace%20talks&url=https%3A//www.msn.com/en-us/news/world/how-trump-shifted-from-threatening-iran-s-power-plants-to-touting-peace-talks/ar-AA1ZfMJB" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-us/news/world/how-trump-shifted-from-threatening-iran-s-power-plants-to-touting-peace-talks/ar-AA1ZfMJB" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=How%20Trump%20shifted%20from%20threatening%20Iran%27s%20power%20plants%20to%20touting%20peace%20talks%20https%3A//www.msn.com/en-us/news/world/how-trump-shifted-from-threatening-iran-s-power-plants-to-touting-peace-talks/ar-AA1ZfMJB" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a6">
+        <h4><a href="https://www.msn.com/en-us/news/world/trump-says-us-is-postponing-some-strikes-as-it-negotiates-end-to-war-with-iran/ar-AA1ZduTF" target="_blank">Trump says U.S. is postponing some strikes as it negotiates end to war with Iran</a></h4>
+        <p class="source">Msn — Mar 23, 2026</p>
+        <p class="summary">The president's announcement sent markets up and energy prices diving, as investors bet Iran's blockade of a key shipping chokepoint could soon end.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Trump%20says%20U.S.%20is%20postponing%20some%20strikes%20as%20it%20negotiates%20end%20to%20war%20with%20Iran&url=https%3A//www.msn.com/en-us/news/world/trump-says-us-is-postponing-some-strikes-as-it-negotiates-end-to-war-with-iran/ar-AA1ZduTF" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-us/news/world/trump-says-us-is-postponing-some-strikes-as-it-negotiates-end-to-war-with-iran/ar-AA1ZduTF" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Trump%20says%20U.S.%20is%20postponing%20some%20strikes%20as%20it%20negotiates%20end%20to%20war%20with%20Iran%20https%3A//www.msn.com/en-us/news/world/trump-says-us-is-postponing-some-strikes-as-it-negotiates-end-to-war-with-iran/ar-AA1ZduTF" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a7">
+        <h4><a href="https://www.washingtonpost.com/politics/2026/03/23/trump-iran-talks-strikes/" target="_blank">Trump says U.S. is postponing some strikes as it negotiates end to war with Iran</a></h4>
+        <p class="source">Wash Post — Mar 23, 2026</p>
+        <p class="summary">The president's announcement sent markets up and energy prices diving, as investors bet Iran's blockade of a key shipping chokepoint could soon end.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Trump%20says%20U.S.%20is%20postponing%20some%20strikes%20as%20it%20negotiates%20end%20to%20war%20with%20Iran&url=https%3A//www.washingtonpost.com/politics/2026/03/23/trump-iran-talks-strikes/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.washingtonpost.com/politics/2026/03/23/trump-iran-talks-strikes/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Trump%20says%20U.S.%20is%20postponing%20some%20strikes%20as%20it%20negotiates%20end%20to%20war%20with%20Iran%20https%3A//www.washingtonpost.com/politics/2026/03/23/trump-iran-talks-strikes/" target="_blank">WhatsApp</a>
+        </div>
+      </div></div>
+  </div>
+
+  <div class="section" id="europe">
+    <h2>🇪🇺 Europe</h2>
+    <div class="section-cards">      <div class="article-card" id="a0">
+        <h4><a href="https://www.msn.com/en-us/news/world/iran-war-shows-limits-of-brics-as-india-pushed-to-choose-sides/ar-AA1Zmbyj" target="_blank">Iran War Shows Limits of BRICS as India Pushed to Choose Sides</a></h4>
+        <p class="source">Msn — Mar 25, 2026</p>
+        <p class="summary">India is facing mounting pressure as leader of the BRICS group to steer the bloc toward taking a firmer stand on the Iran conflict, putting New Delhi's diplomacy to the test.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20War%20Shows%20Limits%20of%20BRICS%20as%20India%20Pushed%20to%20Choose%20Sides&url=https%3A//www.msn.com/en-us/news/world/iran-war-shows-limits-of-brics-as-india-pushed-to-choose-sides/ar-AA1Zmbyj" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-us/news/world/iran-war-shows-limits-of-brics-as-india-pushed-to-choose-sides/ar-AA1Zmbyj" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20War%20Shows%20Limits%20of%20BRICS%20as%20India%20Pushed%20to%20Choose%20Sides%20https%3A//www.msn.com/en-us/news/world/iran-war-shows-limits-of-brics-as-india-pushed-to-choose-sides/ar-AA1Zmbyj" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a1">
+        <h4><a href="https://www.msn.com/en-us/money/markets/it-s-not-just-oil-and-gas-the-strait-of-hormuz-blockage-is-rattling-another-vital-commodity/ar-AA1ZlWA2" target="_blank">It's not just oil and gas. The Strait of Hormuz blockage is rattling another vital commodity</a></h4>
+        <p class="source">Msn — Mar 25, 2026</p>
+        <p class="summary">"I'm a lot more concerned about the current crisis than I was when Russia-Ukraine happened four years ago," one fund manager told CNBC.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=It%27s%20not%20just%20oil%20and%20gas.%20The%20Strait%20of%20Hormuz%20blockage%20is%20rattling%20another%20vital%20commodity&url=https%3A//www.msn.com/en-us/money/markets/it-s-not-just-oil-and-gas-the-strait-of-hormuz-blockage-is-rattling-another-vital-commodity/ar-AA1ZlWA2" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-us/money/markets/it-s-not-just-oil-and-gas-the-strait-of-hormuz-blockage-is-rattling-another-vital-commodity/ar-AA1ZlWA2" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=It%27s%20not%20just%20oil%20and%20gas.%20The%20Strait%20of%20Hormuz%20blockage%20is%20rattling%20another%20vital%20commodity%20https%3A//www.msn.com/en-us/money/markets/it-s-not-just-oil-and-gas-the-strait-of-hormuz-blockage-is-rattling-another-vital-commodity/ar-AA1ZlWA2" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a2">
+        <h4><a href="https://apnews.com/article/trump-cpac-republicans-iran-war-bannon-387082bac70bc17ce56a37fcbd5b056a" target="_blank">Conservatives gather for CPAC with the right openly divided over the Iran war</a></h4>
+        <p class="source">AP News — Mar 25, 2026</p>
+        <p class="summary">Conservatives are holding one of their largest annual gatherings as President Donald Trump faces a tough moment and a growing rift over the war in Iran.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Conservatives%20gather%20for%20CPAC%20with%20the%20right%20openly%20divided%20over%20the%20Iran%20war&url=https%3A//apnews.com/article/trump-cpac-republicans-iran-war-bannon-387082bac70bc17ce56a37fcbd5b056a" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//apnews.com/article/trump-cpac-republicans-iran-war-bannon-387082bac70bc17ce56a37fcbd5b056a" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Conservatives%20gather%20for%20CPAC%20with%20the%20right%20openly%20divided%20over%20the%20Iran%20war%20https%3A//apnews.com/article/trump-cpac-republicans-iran-war-bannon-387082bac70bc17ce56a37fcbd5b056a" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a3">
+        <h4><a href="https://www.local10.com/news/2026/03/25/us-offers-plan-for-a-ceasefire-but-irans-military-says-washington-is-in-no-position-to-negotiate/" target="_blank">US offers plan for a ceasefire but Iran's military says Washington is in no position to negotiate</a></h4>
+        <p class="source">Local10 — Mar 25, 2026</p>
+        <p class="summary">DUBAI, United Arab Emirates (AP) — The United States sent a 15-point plan to Iran for a possible ceasefire, an official said, even as it began to move paratroopers to the Mideast to back up a continge</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=US%20offers%20plan%20for%20a%20ceasefire%20but%20Iran%27s%20military%20says%20Washington%20is%20in%20no%20position%20to%20negotiate&url=https%3A//www.local10.com/news/2026/03/25/us-offers-plan-for-a-ceasefire-but-irans-military-says-washington-is-in-no-position-to-negotiate/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.local10.com/news/2026/03/25/us-offers-plan-for-a-ceasefire-but-irans-military-says-washington-is-in-no-position-to-negotiate/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=US%20offers%20plan%20for%20a%20ceasefire%20but%20Iran%27s%20military%20says%20Washington%20is%20in%20no%20position%20to%20negotiate%20https%3A//www.local10.com/news/2026/03/25/us-offers-plan-for-a-ceasefire-but-irans-military-says-washington-is-in-no-position-to-negotiate/" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a4">
+        <h4><a href="https://www.msn.com/en-us/money/markets/asia-s-ukraine-moment-how-the-iran-war-could-accelerate-a-shift-into-renewables/ar-AA1ZlLiF" target="_blank">'Asia's Ukraine moment': How the Iran war could accelerate a shift into renewables</a></h4>
+        <p class="source">Msn — Mar 25, 2026</p>
+        <p class="summary">The fallout from the sprawling Middle East conflict is expected to represent a watershed moment for the energy transition.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=%27Asia%27s%20Ukraine%20moment%27%3A%20How%20the%20Iran%20war%20could%20accelerate%20a%20shift%20into%20renewables&url=https%3A//www.msn.com/en-us/money/markets/asia-s-ukraine-moment-how-the-iran-war-could-accelerate-a-shift-into-renewables/ar-AA1ZlLiF" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-us/money/markets/asia-s-ukraine-moment-how-the-iran-war-could-accelerate-a-shift-into-renewables/ar-AA1ZlLiF" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=%27Asia%27s%20Ukraine%20moment%27%3A%20How%20the%20Iran%20war%20could%20accelerate%20a%20shift%20into%20renewables%20https%3A//www.msn.com/en-us/money/markets/asia-s-ukraine-moment-how-the-iran-war-could-accelerate-a-shift-into-renewables/ar-AA1ZlLiF" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a5">
+        <h4><a href="https://www.azcentral.com/live-story/news/world/2026/03/24/trump-us-israel-iran-war-live-updates/89294787007/" target="_blank">US sends Iran 15-point list to end war amid Mideast military buildup</a></h4>
+        <p class="source">Azcentral — Mar 25, 2026</p>
+        <p class="summary">The apparent talks aimed at ending the war come as thousands of U.S. troops have been deployed to the region and gas prices continue rising.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=US%20sends%20Iran%2015-point%20list%20to%20end%20war%20amid%20Mideast%20military%20buildup&url=https%3A//www.azcentral.com/live-story/news/world/2026/03/24/trump-us-israel-iran-war-live-updates/89294787007/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.azcentral.com/live-story/news/world/2026/03/24/trump-us-israel-iran-war-live-updates/89294787007/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=US%20sends%20Iran%2015-point%20list%20to%20end%20war%20amid%20Mideast%20military%20buildup%20https%3A//www.azcentral.com/live-story/news/world/2026/03/24/trump-us-israel-iran-war-live-updates/89294787007/" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a6">
+        <h4><a href="https://www.msn.com/en-us/money/markets/iran-war-starts-to-hit-global-economy-business-surveys-show/ar-AA1ZiKdk" target="_blank">Iran war starts to hit global economy, business surveys show</a></h4>
+        <p class="source">Msn — Mar 24, 2026</p>
+        <p class="summary">By Balazs Koranyi and Lucia Mutikani FRANKFURT/WASHINGTON, March 24 (Reuters) - The Iran war is already taking a toll on major economies around the world, according to business surveys on Tuesday whic</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20war%20starts%20to%20hit%20global%20economy%2C%20business%20surveys%20show&url=https%3A//www.msn.com/en-us/money/markets/iran-war-starts-to-hit-global-economy-business-surveys-show/ar-AA1ZiKdk" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-us/money/markets/iran-war-starts-to-hit-global-economy-business-surveys-show/ar-AA1ZiKdk" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20war%20starts%20to%20hit%20global%20economy%2C%20business%20surveys%20show%20https%3A//www.msn.com/en-us/money/markets/iran-war-starts-to-hit-global-economy-business-surveys-show/ar-AA1ZiKdk" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a7">
+        <h4><a href="https://www.courant.com/2026/03/24/us-markets-oil-prices/" target="_blank">Oil prices rise and stocks fall as war with Iran still advances despite Trump's talk of negotiations</a></h4>
+        <p class="source">Courant — Mar 24, 2026</p>
+        <p class="summary">Some of the optimism that sent stocks rallying a day earlier drained out of Wall Street, as airstrikes continue to batter Iran and missiles target sites across the Middle East. Oil prices got back to </p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Oil%20prices%20rise%20and%20stocks%20fall%20as%20war%20with%20Iran%20still%20advances%20despite%20Trump%27s%20talk%20of%20negotiations&url=https%3A//www.courant.com/2026/03/24/us-markets-oil-prices/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.courant.com/2026/03/24/us-markets-oil-prices/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Oil%20prices%20rise%20and%20stocks%20fall%20as%20war%20with%20Iran%20still%20advances%20despite%20Trump%27s%20talk%20of%20negotiations%20https%3A//www.courant.com/2026/03/24/us-markets-oil-prices/" target="_blank">WhatsApp</a>
+        </div>
+      </div></div>
+  </div>
+
+  <div class="section" id="turkey">
+    <h2>🇹🇷 Turkey</h2>
+    <div class="section-cards">      <div class="article-card" id="a0">
+        <h4><a href="https://www.msn.com/en-us/news/world/us-negotiating-with-itself-says-iran-live/ar-AA1Zlm8w" target="_blank">US 'negotiating with itself', says Iran - Live</a></h4>
+        <p class="source">Msn — Mar 25, 2026</p>
+        <p class="summary">Iran-US war latest: US 'negotiating with itself', says Tehran after Trump proposes 15-point peace plan - Iran said it had reopened the Strait of Hormuz to 'non-hostile vessels', offering hope for aili</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=US%20%27negotiating%20with%20itself%27%2C%20says%20Iran%20-%20Live&url=https%3A//www.msn.com/en-us/news/world/us-negotiating-with-itself-says-iran-live/ar-AA1Zlm8w" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-us/news/world/us-negotiating-with-itself-says-iran-live/ar-AA1Zlm8w" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=US%20%27negotiating%20with%20itself%27%2C%20says%20Iran%20-%20Live%20https%3A//www.msn.com/en-us/news/world/us-negotiating-with-itself-says-iran-live/ar-AA1Zlm8w" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a1">
+        <h4><a href="https://www.msn.com/en-us/news/world/pentagon-prepares-3000-troops-from-army-s-elite-82nd-airborne-for-iran-war-deployment/ar-AA1ZjzSS" target="_blank">Pentagon prepares 3,000 troops from Army's elite 82nd Airborne for Iran war deployment</a></h4>
+        <p class="source">Msn — Mar 24, 2026</p>
+        <p class="summary">The Department of War is gearing up to send thousands of troops from the Army's 82nd Infantry Division to deploy to the Middle East, according to a source familiar with the plan. The Pentagon is expec</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Pentagon%20prepares%203%2C000%20troops%20from%20Army%27s%20elite%2082nd%20Airborne%20for%20Iran%20war%20deployment&url=https%3A//www.msn.com/en-us/news/world/pentagon-prepares-3000-troops-from-army-s-elite-82nd-airborne-for-iran-war-deployment/ar-AA1ZjzSS" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-us/news/world/pentagon-prepares-3000-troops-from-army-s-elite-82nd-airborne-for-iran-war-deployment/ar-AA1ZjzSS" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Pentagon%20prepares%203%2C000%20troops%20from%20Army%27s%20elite%2082nd%20Airborne%20for%20Iran%20war%20deployment%20https%3A//www.msn.com/en-us/news/world/pentagon-prepares-3000-troops-from-army-s-elite-82nd-airborne-for-iran-war-deployment/ar-AA1ZjzSS" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a2">
+        <h4><a href="https://www.msn.com/en-us/news/world/pakistan-ready-to-host-us-iran-talks-can-latest-peace-push-work/ar-AA1ZiQYC" target="_blank">Pakistan 'ready to host US-Iran talks': Can latest peace push work?</a></h4>
+        <p class="source">Msn — Mar 24, 2026</p>
+        <p class="summary">Pakistan, Turkiye and Egypt are trying to broker talks. Analysts caution the chasm between the US and Iran remains wide.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Pakistan%20%27ready%20to%20host%20US-Iran%20talks%27%3A%20Can%20latest%20peace%20push%20work%3F&url=https%3A//www.msn.com/en-us/news/world/pakistan-ready-to-host-us-iran-talks-can-latest-peace-push-work/ar-AA1ZiQYC" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-us/news/world/pakistan-ready-to-host-us-iran-talks-can-latest-peace-push-work/ar-AA1ZiQYC" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Pakistan%20%27ready%20to%20host%20US-Iran%20talks%27%3A%20Can%20latest%20peace%20push%20work%3F%20https%3A//www.msn.com/en-us/news/world/pakistan-ready-to-host-us-iran-talks-can-latest-peace-push-work/ar-AA1ZiQYC" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a3">
+        <h4><a href="https://www.palmbeachpost.com/story/business/economy/2026/03/24/palm-beach-international-boat-show-iran-war-oil-prices/89273755007/" target="_blank">Will the Iran war affect the Palm Beach boat show?</a></h4>
+        <p class="source">Palmbeachpost — Mar 24, 2026</p>
+        <p class="summary">The Iran war has ignited a global crisis, pushing oil prices up. Will it affect the Palm Beach International Boat Show?</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Will%20the%20Iran%20war%20affect%20the%20Palm%20Beach%20boat%20show%3F&url=https%3A//www.palmbeachpost.com/story/business/economy/2026/03/24/palm-beach-international-boat-show-iran-war-oil-prices/89273755007/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.palmbeachpost.com/story/business/economy/2026/03/24/palm-beach-international-boat-show-iran-war-oil-prices/89273755007/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Will%20the%20Iran%20war%20affect%20the%20Palm%20Beach%20boat%20show%3F%20https%3A//www.palmbeachpost.com/story/business/economy/2026/03/24/palm-beach-international-boat-show-iran-war-oil-prices/89273755007/" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a4">
+        <h4><a href="https://www.msn.com/en-gb/news/world/iran-strikes-israel-after-calling-peace-talks-fake-news-live/ar-AA1Zg4hz" target="_blank">Iran strikes Israel after calling peace talks fake news: Live</a></h4>
+        <p class="source">Msn — Mar 24, 2026</p>
+        <p class="summary">Iran-US war latest: Tehran strikes Israel and US Gulf allies after calling Trump peace talks 'fake news' - Donald Trump says the US and Iran have held talks about a 'total resolution of hostilities'</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20strikes%20Israel%20after%20calling%20peace%20talks%20fake%20news%3A%20Live&url=https%3A//www.msn.com/en-gb/news/world/iran-strikes-israel-after-calling-peace-talks-fake-news-live/ar-AA1Zg4hz" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-gb/news/world/iran-strikes-israel-after-calling-peace-talks-fake-news-live/ar-AA1Zg4hz" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20strikes%20Israel%20after%20calling%20peace%20talks%20fake%20news%3A%20Live%20https%3A//www.msn.com/en-gb/news/world/iran-strikes-israel-after-calling-peace-talks-fake-news-live/ar-AA1Zg4hz" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a5">
+        <h4><a href="https://www.msn.com/en-in/news/world/iran-us-news-live-updates-tehran-now-says-it-s-reviewing-a-us-proposal-hours-after-denying-talks-with-trump/ar-AA1Zg5is" target="_blank">Iran US News Live Updates: Tehran now says it's 'reviewing' a US proposal, hours after denying talks with Trump</a></h4>
+        <p class="source">Msn — Mar 24, 2026</p>
+        <p class="summary">Iran US News Live Updates: A senior Iranian Foreign Ministry official has confirmed that Tehran received a US proposal via mediators and is reviewing it, according to CBS News. Catch LIVE updates with</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20US%20News%20Live%20Updates%3A%20Tehran%20now%20says%20it%27s%20%27reviewing%27%20a%20US%20proposal%2C%20hours%20after%20denying%20talks%20with%20Trump&url=https%3A//www.msn.com/en-in/news/world/iran-us-news-live-updates-tehran-now-says-it-s-reviewing-a-us-proposal-hours-after-denying-talks-with-trump/ar-AA1Zg5is" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-in/news/world/iran-us-news-live-updates-tehran-now-says-it-s-reviewing-a-us-proposal-hours-after-denying-talks-with-trump/ar-AA1Zg5is" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20US%20News%20Live%20Updates%3A%20Tehran%20now%20says%20it%27s%20%27reviewing%27%20a%20US%20proposal%2C%20hours%20after%20denying%20talks%20with%20Trump%20https%3A//www.msn.com/en-in/news/world/iran-us-news-live-updates-tehran-now-says-it-s-reviewing-a-us-proposal-hours-after-denying-talks-with-trump/ar-AA1Zg5is" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a6">
+        <h4><a href="https://www.msn.com/en-gb/news/world/iran-war-live-trump-sets-tehran-five-day-deadline-for-peace-deal/ar-AA1Zcqj5" target="_blank">Iran war live: Trump sets Tehran five-day deadline for peace deal</a></h4>
+        <p class="source">Msn — Mar 24, 2026</p>
+        <p class="summary">US-Iran war latest: Trump sets Tehran five-day deadline for peace deal with threat US could 'annihilate' Iran - Donald Trump says the US and Iran have held talks about a 'total resolution of hostiliti</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20war%20live%3A%20Trump%20sets%20Tehran%20five-day%20deadline%20for%20peace%20deal&url=https%3A//www.msn.com/en-gb/news/world/iran-war-live-trump-sets-tehran-five-day-deadline-for-peace-deal/ar-AA1Zcqj5" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.msn.com/en-gb/news/world/iran-war-live-trump-sets-tehran-five-day-deadline-for-peace-deal/ar-AA1Zcqj5" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20war%20live%3A%20Trump%20sets%20Tehran%20five-day%20deadline%20for%20peace%20deal%20https%3A//www.msn.com/en-gb/news/world/iran-war-live-trump-sets-tehran-five-day-deadline-for-peace-deal/ar-AA1Zcqj5" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a7">
+        <h4><a href="https://americanbazaaronline.com/2026/03/23/oil-prices-iran-war-hormuz-disruption-fears-of-worst-crisis-477393/" target="_blank">Oil prices climb amid Iran war, Hormuz disruption sparks fears of worst crisis since 1970s</a></h4>
+        <p class="source">Americanbazaaronline — Mar 23, 2026</p>
+        <p class="summary">Iran's disruption of the Strait of Hormuz is triggering a global energy crisis, with the IEA warning oil supply losses now exceed those of the 1970s shocks.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Oil%20prices%20climb%20amid%20Iran%20war%2C%20Hormuz%20disruption%20sparks%20fears%20of%20worst%20crisis%20since%201970s&url=https%3A//americanbazaaronline.com/2026/03/23/oil-prices-iran-war-hormuz-disruption-fears-of-worst-crisis-477393/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//americanbazaaronline.com/2026/03/23/oil-prices-iran-war-hormuz-disruption-fears-of-worst-crisis-477393/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Oil%20prices%20climb%20amid%20Iran%20war%2C%20Hormuz%20disruption%20sparks%20fears%20of%20worst%20crisis%20since%201970s%20https%3A//americanbazaaronline.com/2026/03/23/oil-prices-iran-war-hormuz-disruption-fears-of-worst-crisis-477393/" target="_blank">WhatsApp</a>
+        </div>
+      </div></div>
+  </div>
+
+  <div class="section" id="global-powers">
+    <h2>🌐 Global Powers</h2>
+    <div class="section-cards">      <div class="article-card" id="a0">
+        <h4><a href="https://www.theguardian.com/business/live/2026/mar/25/uk-inflation-steady-iran-war-oil-dips-trump-comments-business-live" target="_blank">UK inflation steady before Iran war; oil price dips on Trump comments - business live</a></h4>
+        <p class="source">Guardian — Mar 25, 2026</p>
+        <p class="summary">UK inflation stays at 3% in February as petrol prices fall and food inflation eases, before Iran war drives up global energy costs</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=UK%20inflation%20steady%20before%20Iran%20war%3B%20oil%20price%20dips%20on%20Trump%20comments%20-%20business%20live&url=https%3A//www.theguardian.com/business/live/2026/mar/25/uk-inflation-steady-iran-war-oil-dips-trump-comments-business-live" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.theguardian.com/business/live/2026/mar/25/uk-inflation-steady-iran-war-oil-dips-trump-comments-business-live" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=UK%20inflation%20steady%20before%20Iran%20war%3B%20oil%20price%20dips%20on%20Trump%20comments%20-%20business%20live%20https%3A//www.theguardian.com/business/live/2026/mar/25/uk-inflation-steady-iran-war-oil-dips-trump-comments-business-live" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a1">
+        <h4><a href="https://www.denverpost.com/2026/03/24/iran-war-israel-us/" target="_blank">Strikes hit Iran and Tehran targets Israel and Gulf states amid mixed signals over talks to end war</a></h4>
+        <p class="source">Denverpost — Mar 24, 2026</p>
+        <p class="summary">By JON GAMBRELL, DAVID RISING and SAMY MAGDY DUBAI, United Arab Emirates (AP) — Airstrikes battered Iran and Iranian missiles and drones targeted Israel's Tel Aviv and sites across the Mideast on Tues</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Strikes%20hit%20Iran%20and%20Tehran%20targets%20Israel%20and%20Gulf%20states%20amid%20mixed%20signals%20over%20talks%20to%20end%20war&url=https%3A//www.denverpost.com/2026/03/24/iran-war-israel-us/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.denverpost.com/2026/03/24/iran-war-israel-us/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Strikes%20hit%20Iran%20and%20Tehran%20targets%20Israel%20and%20Gulf%20states%20amid%20mixed%20signals%20over%20talks%20to%20end%20war%20https%3A//www.denverpost.com/2026/03/24/iran-war-israel-us/" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a2">
+        <h4><a href="https://www.forbes.com/sites/gauravsharma/2026/03/24/is-the-iran-war-fully-priced-into-oil-market-nope-say-industry-bosses/" target="_blank">Is The Iran War Fully Priced Into Oil Market? Nope Say Industry Bosses</a></h4>
+        <p class="source">Forbes — Mar 24, 2026</p>
+        <p class="summary">Oil is north of $100 and threatening to go higher in the wake of the ongoing Iraq war, but the impact of the event may not be fully priced in yet, say industry insiders.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Is%20The%20Iran%20War%20Fully%20Priced%20Into%20Oil%20Market%3F%20Nope%20Say%20Industry%20Bosses&url=https%3A//www.forbes.com/sites/gauravsharma/2026/03/24/is-the-iran-war-fully-priced-into-oil-market-nope-say-industry-bosses/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.forbes.com/sites/gauravsharma/2026/03/24/is-the-iran-war-fully-priced-into-oil-market-nope-say-industry-bosses/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Is%20The%20Iran%20War%20Fully%20Priced%20Into%20Oil%20Market%3F%20Nope%20Say%20Industry%20Bosses%20https%3A//www.forbes.com/sites/gauravsharma/2026/03/24/is-the-iran-war-fully-priced-into-oil-market-nope-say-industry-bosses/" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a3">
+        <h4><a href="https://www.aljazeera.com/news/liveblog/2026/3/24/iran-war-live-tehran-says-trumps-claims-of-peace-talks-fake" target="_blank">Iran war live: Casualties in attack on Tel Aviv, Israel hits Lebanon</a></h4>
+        <p class="source">Al Jazeera — Mar 24, 2026</p>
+        <p class="summary">Iran's Revolutionary Guard calls Trump a 'deceitful American president', accuses him of 'contradictory behaviour'.</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20war%20live%3A%20Casualties%20in%20attack%20on%20Tel%20Aviv%2C%20Israel%20hits%20Lebanon&url=https%3A//www.aljazeera.com/news/liveblog/2026/3/24/iran-war-live-tehran-says-trumps-claims-of-peace-talks-fake" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.aljazeera.com/news/liveblog/2026/3/24/iran-war-live-tehran-says-trumps-claims-of-peace-talks-fake" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20war%20live%3A%20Casualties%20in%20attack%20on%20Tel%20Aviv%2C%20Israel%20hits%20Lebanon%20https%3A//www.aljazeera.com/news/liveblog/2026/3/24/iran-war-live-tehran-says-trumps-claims-of-peace-talks-fake" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a4">
+        <h4><a href="https://www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit" target="_blank">Iran war updates: Tehran denies talks happened after Trump's claims</a></h4>
+        <p class="source">Al Jazeera — Mar 24, 2026</p>
+        <p class="summary">Iran says no negotiations or discussions with the United States have taken place since the start of the war. This comes after US President Donald Trump said the US and Iran have held "very good and pr</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Iran%20war%20updates%3A%20Tehran%20denies%20talks%20happened%20after%20Trump%27s%20claims&url=https%3A//www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Iran%20war%20updates%3A%20Tehran%20denies%20talks%20happened%20after%20Trump%27s%20claims%20https%3A//www.aljazeera.com/news/liveblog/2026/3/23/iran-war-live-tehran-vows-to-completely-close-hormuz-if-power-plants-hit" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a5">
+        <h4><a href="https://www.click2houston.com/news/world/2026/03/24/the-latest-trump-raises-hopes-for-war-to-wind-down-but-no-sign-of-reduced-fighting/" target="_blank">The Latest: Trump raises hopes for war to wind down but no sign of reduced fighting</a></h4>
+        <p class="source">Click2Houston — Mar 24, 2026</p>
+        <p class="summary">Hopes rose that the Iran war could begin winding down as President Donald Trump claimed that his government was holding productive talks with Tehran, but fighting showed no signs of slowing and Iran d</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=The%20Latest%3A%20Trump%20raises%20hopes%20for%20war%20to%20wind%20down%20but%20no%20sign%20of%20reduced%20fighting&url=https%3A//www.click2houston.com/news/world/2026/03/24/the-latest-trump-raises-hopes-for-war-to-wind-down-but-no-sign-of-reduced-fighting/" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.click2houston.com/news/world/2026/03/24/the-latest-trump-raises-hopes-for-war-to-wind-down-but-no-sign-of-reduced-fighting/" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=The%20Latest%3A%20Trump%20raises%20hopes%20for%20war%20to%20wind%20down%20but%20no%20sign%20of%20reduced%20fighting%20https%3A//www.click2houston.com/news/world/2026/03/24/the-latest-trump-raises-hopes-for-war-to-wind-down-but-no-sign-of-reduced-fighting/" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a6">
+        <h4><a href="https://www.theguardian.com/world/2026/mar/24/trumps-very-good-talks-with-iran-buy-him-time-with-oil-and-energy-markets" target="_blank">Trump's 'very good' talks with Iran buy him time with oil and energy markets</a></h4>
+        <p class="source">Guardian — Mar 23, 2026</p>
+        <p class="summary">Tehran denied negotiations that delayed US strikes and Trump was vague on the details, but talks signal renewed push for peace from regional powers</p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Trump%27s%20%27very%20good%27%20talks%20with%20Iran%20buy%20him%20time%20with%20oil%20and%20energy%20markets&url=https%3A//www.theguardian.com/world/2026/mar/24/trumps-very-good-talks-with-iran-buy-him-time-with-oil-and-energy-markets" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.theguardian.com/world/2026/mar/24/trumps-very-good-talks-with-iran-buy-him-time-with-oil-and-energy-markets" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Trump%27s%20%27very%20good%27%20talks%20with%20Iran%20buy%20him%20time%20with%20oil%20and%20energy%20markets%20https%3A//www.theguardian.com/world/2026/mar/24/trumps-very-good-talks-with-iran-buy-him-time-with-oil-and-energy-markets" target="_blank">WhatsApp</a>
+        </div>
+      </div>      <div class="article-card" id="a7">
+        <h4><a href="https://www.cnbc.com/2026/03/22/stock-market-today-live-updates.html" target="_blank">Dow jumps 800 points after Trump says U.S. and Iran have held 'productive' talks: Live updates</a></h4>
+        <p class="source">Cnbc — Mar 23, 2026</p>
+        <p class="summary">Stocks rallied Monday after President Donald Trump said the U.S. and Iran have held talks and that he was halting strikes on Iranian power plants and energy infrastructure, giving investors hope that </p>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Dow%20jumps%20800%20points%20after%20Trump%20says%20U.S.%20and%20Iran%20have%20held%20%27productive%27%20talks%3A%20Live%20updates&url=https%3A//www.cnbc.com/2026/03/22/stock-market-today-live-updates.html" target="_blank">X / Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.cnbc.com/2026/03/22/stock-market-today-live-updates.html" target="_blank">Facebook</a>
+          <a href="https://wa.me/?text=Dow%20jumps%20800%20points%20after%20Trump%20says%20U.S.%20and%20Iran%20have%20held%20%27productive%27%20talks%3A%20Live%20updates%20https%3A//www.cnbc.com/2026/03/22/stock-market-today-live-updates.html" target="_blank">WhatsApp</a>
+        </div>
+      </div></div>
+  </div>
+  <div class="section" id="local-media">
+    <h2>📡 Local Media Voices</h2>
+    <div class="aj-item"><a href="#" onclick="return false;">🇷🇺 Russian State Media</a> <span>— Russian perspective on the conflict <em>(tass.com, rt.com, ria.ru)</em></span></div>
+<div class="aj-item"><a href="#" onclick="return false;">🇨🇳 Chinese State Media</a> <span>— China's official line and global positioning <em>(scmp.com, globaltimes.cn, xinhuanet.com)</em></span></div>
+<div class="aj-item"><a href="#" onclick="return false;">🇸🇦 Gulf Local Media</a> <span>— Regional Arab perspective from the Gulf <em>(gulfnews.com, arabnews.com, alarabiya.com)</em></span></div>
+<div class="aj-item"><a href="#" onclick="return false;">🇹🇷 Turkish Local Media</a> <span>— Turkey's diplomatic stance and refugee situation <em>(hurriyet.com.tr, aa.com.tr, trtworld.com)</em></span></div>
+<div class="aj-item"><a href="#" onclick="return false;">🇮🇳 Indian Regional Media</a> <span>— South Asian perspective and regional implications <em>(ndtv.com, theprint.in, wion.co.in)</em></span></div>
+  </div>
+  <div class="section" id="summary">
+    <h2>📊 Summary Matrix</h2>
+    <table class="summary-table">
+      <tr><th>Country/Region</th><th>Articles</th><th>Stance</th></tr>
+      <tr><td>🇺🇸 United States</td><td>36</td><td>Backing Israel 🇺🇸</td></tr>
+<tr><td>🇷🇺 Russia & Ukraine</td><td>21</td><td>Backing Iran 🇷🇺</td></tr>
+<tr><td>🇹🇷 Turkey</td><td>20</td><td>Hosting refugees, diplomacy 🟡</td></tr>
+<tr><td>🇪🇺 Europe</td><td>71</td><td>Divided 🟡</td></tr>
+<tr><td>🌐 Global Powers</td><td>13</td><td>Monitoring 📊</td></tr>
+<tr><td>🇨🇳 China</td><td>16</td><td>Backing Iran, staying quiet 🇨🇳</td></tr>
+<tr><td>🇮🇷 Iran</td><td>4</td><td>Under attack 🇮🇷</td></tr>
+<tr><td>🇮🇱 Israel</td><td>3</td><td>Primary actor 🇮🇱</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>184</strong></td><td></td></tr>
+    </table>
+  </div>
+
+<div class="footer">
+  Auto-updated every 30 minutes via cron · Data from DuckDuckGo News · Built with OpenClaw
 </div>
-
-<footer>
-  <p>The Iran Conflict Dashboard — Day 23 | March 24, 2026</p>
-  <p style="margin-top:5px;">Sources: NY Times, AP News, CBS News, Al Jazeera, The Atlantic, Reuters, TIME, PBS, NPR, FT, The Guardian, SCMP, The Diplomat</p>
-</footer>
 
 <script>
 function scrollToSection(id) {
   var el = document.getElementById(id);
-  if (el) {
-    el.scrollIntoView({behavior: 'smooth'});
-  }
+  if (el) { el.scrollIntoView({behavior:'smooth'}); }
+}
+// Scroll to section from hash
+if (window.location.hash) {
+  var id = window.location.hash.substring(1);
+  var el = document.getElementById(id);
+  if (el) { setTimeout(function() { el.scrollIntoView({behavior:'smooth'}); }, 100); }
 }
 </script>
-
 </body>
 </html>
